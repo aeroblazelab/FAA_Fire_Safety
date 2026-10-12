@@ -43,6 +43,18 @@ python tools/build_reports_index.py  # generate the index page
 python tools/serve.py              # preview at http://localhost:8787
 ```
 
+## Hosting
+
+Live at **[firesafety.aeroblazelab.com](https://firesafety.aeroblazelab.com)**.
+
+- **Site** — served as static assets by a [Cloudflare Worker](https://developers.cloudflare.com/workers/static-assets/)
+  (`wrangler.jsonc` points it at `site/`). Cloudflare watches this GitHub repo and redeploys
+  automatically on every push to `main`; pull requests get preview URLs.
+- **File archive** — the ~60 GB of PDFs, presentations, and videos live in
+  [Cloudflare R2](https://developers.cloudflare.com/r2/) object storage (S3-compatible, zero
+  egress fees), served at `files.firesafety.aeroblazelab.com`. The build script's `FILE_BASE`
+  environment variable controls where document links point.
+
 ## Contributing
 
 Issues and pull requests are welcome — especially reports of broken links, missing documents
