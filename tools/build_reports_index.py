@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build the browsable report index: dedupe, infer year, assign topics,
 emit site/reports/browse.html (table UI styled like the rest of the site)."""
-import json, re, html, pathlib, collections
+import json, re, html, os, pathlib, collections
+FILE_BASE = os.environ.get("FILE_BASE", "/files")
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 SITE = REPO / "site"
@@ -71,7 +72,7 @@ for r in merged:
         "n": r.get("report", ""),
         "t": r.get("title", ""),
         "a": r.get("author", ""),
-        "p": "/files" + r["pdf"] if r["pdf"].startswith("/") else "/files/" + r["pdf"],
+        "p": FILE_BASE + r["pdf"] if r["pdf"].startswith("/") else FILE_BASE + "/" + r["pdf"],
         "c": topics_for(r),
         "ab": (r.get("abstract", "") or "")[:300],
     })
@@ -85,7 +86,7 @@ for r in pres:
         "n": r["group"].replace(" Working Group", " WG") + " &middot; " + r["date"],
         "t": r["title"],
         "a": r.get("presenter", ""),
-        "p": "/files" + r["files"][0],
+        "p": FILE_BASE + r["files"][0],
         "c": topics_for({"title": r["title"], "abstract": ""}),
         "ab": "",
     })
