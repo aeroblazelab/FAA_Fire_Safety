@@ -11,3 +11,32 @@
 }
 #archive-banner strong.lead { font-size: 16px; }
 #archive-banner a { color: #0b4ea2; font-weight: bold; }
+
+/* first-visit notice modal */
+#archive-modal-overlay {
+  position: fixed; inset: 0; background: rgba(10,10,30,.65);
+  z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 16px;
+}
+#archive-modal {
+  background: #fff; max-width: 560px; border-radius: 8px; padding: 26px 30px;
+  font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #1a1a1a;
+  box-shadow: 0 12px 40px rgba(0,0,0,.4); border-top: 6px solid #ffc107;
+}
+#archive-modal h2 { margin: 0 0 10px; font-size: 21px; }
+#archive-modal button {
+  margin-top: 16px; padding: 10px 22px; font-size: 15px; font-weight: bold;
+  background: #0b4ea2; color: #fff; border: 0; border-radius: 5px; cursor: pointer;
+}
+#archive-modal button:hover { background: #09407f; }
+
+/* handbook: standout official-source notice + collapsed historical content */
+.handbook-official {
+  background: #fff3cd; border: 3px solid #e67e22; border-radius: 8px;
+  padding: 20px 24px; margin: 16px 0; font-size: 17px; line-height: 1.7;
+}
+.handbook-official .hb-title { font-size: 20px; color: #b34700; }
+.handbook-reveal {
+  display: inline-block; margin: 6px 0 18px; padding: 10px 20px; font-size: 15px;
+  background: #e9ecef; color: #333; border: 1px solid #adb5bd; border-radius: 5px; cursor: pointer;
+}
+.handbook-reveal:hover { background: #dde0e3; }

@@ -149,6 +149,7 @@ function render(){
       "\\" title=\\""+esc(r.ab)+"\\">"+esc(r.t)+"</a></td><td>"+esc(r.a)+"</td><td>"+r.c.map(esc).join("<br/>")+"</td></tr>";
   }).join("");
 }
+try { var usp = new URLSearchParams(location.search); if (usp.get("q")) q.value = usp.get("q"); } catch (e) {}
 q.addEventListener("input", render); topic.addEventListener("change", render);
 document.getElementById("kind").addEventListener("change", render);
 sortSel.addEventListener("change", render); render();

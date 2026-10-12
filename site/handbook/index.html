@@ -11,13 +11,13 @@
 
 
 
-                              <link href="/archive-assets/banner.css" rel="stylesheet"/>
+                              <link href="/archive-assets/banner.css" rel="stylesheet"/><script src="/archive-assets/archive.js" defer></script>
 </head>
 <body>
 <div id="archive-banner">
-<strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; historical copy of the former FAA Fire Safety website (fire.tc.faa.gov), preserved from the
+<strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; a <strong>snapshot of the former FAA Fire Safety website</strong> (fire.tc.faa.gov) as of <strong>October 2025</strong>, preserved from the
 <a href="https://web.archive.org/web/20241207155156/https://www.fire.tc.faa.gov/">Internet Archive</a>.
-<strong>Not affiliated with or endorsed by the Federal Aviation Administration.</strong> Content is U.S. Government work (public domain).
+<strong>Historical record only; no longer updated. Not affiliated with or endorsed by the FAA.</strong>
 </div>
 
     <div class="sr-only"><a href="#content">Skip to Main Content</a></div>
@@ -36,7 +36,7 @@
         <div class="col-sm-6">
             <div class="row hidden-xs" style="height: 50px; padding-top:5px;">&nbsp;</div>
             <div class="row text-right">
-                <form class="search" name="cn" action="https://www.faa.gov/search/">
+                <form class="search" name="cn" action="/reports/browse.html">
                     <div class="col-sm-8 col-sm-offset-4">
                         <div class="input-group input-group-sm">
                             <input name="q" type="text" id="q" class="form-control" placeholder="Search for...">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </form>
-                <!--<form class="form-inline" name="cn" action="https://www.faa.gov/search/">
+                <!--<form class="form-inline" name="cn" action="/reports/browse.html">
                     <div class="form-group">
                         <div class="input-group input-group-sm">
                             <label for="search" class="sr-only">Search</label>
@@ -85,7 +85,7 @@
                 <li><a href="/systems.asp.html">Systems</a></li>
                 <li><a href="/research.html">Fire Research</a></li>
                 <li><a href="/handbook/index.html">Handbook</a></li>
-                <li><a href="/reports/reports.asp.html">Reports</a></li>               
+                <li><a href="/reports/browse.html">Reports</a></li>               
                 <li><a href="/meetings/meetings.asp.html">Meetings</a></li>
                                
             </ul>            
@@ -150,17 +150,18 @@
 <a name="top"></a>
 <div class="page-header">
     <h2>Aircraft Materials Fire Test Handbook</h2>
-<div style="background:#e8f4fd;border:1px solid #7db9e8;border-radius:6px;padding:14px 18px;margin:12px 0;font-size:14px;line-height:1.6;">
-<strong style="font-size:15px;">&#128214; Looking for the official, current Handbook?</strong><br/>
+<div class="handbook-official">
+<strong class="hb-title">&#128214; Looking for the official, current Handbook?</strong><br/>
 The authoritative copies of the <em>Aircraft Materials Fire Test Handbook</em> are maintained in the FAA&rsquo;s
 <a href="https://drs.faa.gov/browse"><strong>Dynamic Regulatory System (DRS)</strong></a>:
 scroll to the bottom of the DRS browse page, then click <strong>&ldquo;Fire Safety&rdquo;</strong> &rarr;
-<strong>&ldquo;Aircraft Materials Fire Test Handbook&rdquo;</strong>.
+<strong>&ldquo;Aircraft Materials Fire Test Handbook&rdquo;</strong>.<br/>
 <span style="color:#8a6d00;">Note: the separate &ldquo;Revision&nbsp;3&rdquo; entry in DRS is <strong>not yet officially
 approved for use</strong>.</span><br/>
-<span style="color:#555;">Everything on this page is preserved for historical record only.</span>
+<span style="color:#555;">Everything below is preserved for historical record only and is no longer updated.</span>
 </div>
-
+<button type="button" id="handbook-reveal-btn" class="handbook-reveal">&#9660; View historical Handbook content</button>
+<div id="handbook-historical" style="display:none;">
 </div>
 <div class="row">
     <div class="col-sm-12">
@@ -1183,7 +1184,7 @@ approved for use</strong>.</span><br/>
 
 
         </div>
-    </main>
+    </div></main>
     <footer>
         
         <div class="container-fluid">
