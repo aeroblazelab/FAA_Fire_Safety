@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Slide Show</title>
+	
+<STYLE type="text/css">
+<!-- .slides {position:absolute; left: 10%; top:5%; visibility:hidden} -->
+</STYLE> 
+<SCRIPT language="JavaScript1.2">
+var numSlides = 10;
+var currentSlide = numSlides; 
+function setUp() {
+if (!document.all) {
+ document.all = document;
+ for (i=1;i<=numSlides;i++) document.all[("image"+i)].style=document.all[("image"+i)];
+ }
+switchSlide(1);
+}
+
+function switchSlide(sDir) {
+newSlide = currentSlide + sDir;
+if (!newSlide) newSlide=numSlides;
+if (newSlide > numSlides) newSlide=1;
+document.all[("image"+newSlide)].style.visibility="visible";
+document.all[("image"+currentSlide)].style.visibility="hidden";
+// remove the next line if you don't want captions:
+//document.all["captions"].document.forCaptions.captionsText.value=captionTxt[newSlide];
+currentSlide = newSlide;
+}
+//-->
+</script> 
+<link href="/archive-assets/banner.css" rel="stylesheet"/>
+</head>
+<body onLoad="setUp()" bgcolor="White">
+<div id="archive-banner">
+<strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; historical copy of the former FAA Fire Safety website (fire.tc.faa.gov), preserved from the
+<a href="https://web.archive.org/web/20241207155156/https://www.fire.tc.faa.gov/">Internet Archive</a>.
+<strong>Not affiliated with or endorsed by the Federal Aviation Administration.</strong> Content is U.S. Government work (public domain).
+</div>
+
+<DIV id="image10" class="slides"><IMG src="/files/materials/thermal/Images/P000194.jpg" width="384" height="288"></DIV></FONT>
+<DIV id="image9" class="slides"><IMG src="/files/materials/thermal/Images/P000205.jpg" width="384" height="288"></DIV>
+<DIV id="image8" class="slides"><IMG src="/files/materials/thermal/Images/P000204.jpg" width="384" height="288"></DIV>
+<DIV id="image7" class="slides"><IMG src="/files/materials/thermal/Images/P000201.jpg" width="384" height="288"></DIV>
+<DIV id="image6" class="slides"><IMG src="/files/materials/thermal/Images/P000200.jpg" width="384" height="288"></DIV></FONT>
+<DIV id="image5" class="slides"><IMG src="/files/materials/thermal/Images/P000198.jpg" width="384" height="288"></DIV>
+<DIV id="image4" class="slides"><IMG src="/files/materials/thermal/Images/P000197.jpg" width="384" height="288"></DIV>
+<DIV id="image3" class="slides"><IMG src="/files/materials/thermal/Images/P000196.jpg" width="384" height="288"></DIV>
+<DIV id="image2" class="slides"><IMG src="/files/materials/thermal/Images/P000195.jpg" width="384" height="288"></DIV></FONT>
+
+<DIV style="LEFT: 160px; POSITION: absolute; TOP: 327px">
+<A href="javascript:switchSlide(-1)">PREVIOUS</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A href="javascript:switchSlide(1)">NEXT</A> 
+</DIV>
+<DIV id="image1" class="slides"><IMG src="/files/materials/thermal/Images/p000191.jpg" width="384" height="288"></DIV> 
+
+</body>
+</html>

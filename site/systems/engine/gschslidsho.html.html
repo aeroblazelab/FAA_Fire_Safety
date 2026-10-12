@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Slide Show</title>
+	
+<style type="text/css">
+<!-- .slides {position:absolute; left: 10%; top:5%; visibility:hidden} -->
+</style> 
+<script language="JavaScript1.2">
+var numSlides = 2;
+var currentSlide = numSlides; 
+function setUp() {
+if (!document.all) {
+ document.all = document;
+ for (i=1;i<=numSlides;i++) document.all[("image"+i)].style=document.all[("image"+i)];
+ }
+switchSlide(1);
+}
+
+function switchSlide(sDir) {
+newSlide = currentSlide + sDir;
+if (!newSlide) newSlide=numSlides;
+if (newSlide > numSlides) newSlide=1;
+document.all[("image"+newSlide)].style.visibility="visible";
+document.all[("image"+currentSlide)].style.visibility="hidden";
+// remove the next line if you don't want captions:
+//document.all["captions"].document.forCaptions.captionsText.value=captionTxt[newSlide];
+currentSlide = newSlide;
+}
+//-->
+</script> 
+<link href="/archive-assets/banner.css" rel="stylesheet"/>
+</head>
+<body onLoad="setUp()" bgcolor="White">
+<div id="archive-banner">
+<strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; historical copy of the former FAA Fire Safety website (fire.tc.faa.gov), preserved from the
+<a href="https://web.archive.org/web/20241207155156/https://www.fire.tc.faa.gov/">Internet Archive</a>.
+<strong>Not affiliated with or endorsed by the Federal Aviation Administration.</strong> Content is U.S. Government work (public domain).
+</div>
+
+<div id="image2" class="slides"><img src="/files/images/systems/Gschmvus3.gif" alt="slide show picture"></div></FONT>
+
+<div style="LEFT: 160px; POSITION: absolute; TOP: 327px">
+<a href="javascript:switchSlide(-1)">PREVIOUS</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="javascript:switchSlide(1)">NEXT</a> 
+</div>
+<div id="image1" class="slides"><center><img src="/files/images/systems/Gschmvus2.gif" alt="slide show picture"></center></div> 
+</body>
+</html>

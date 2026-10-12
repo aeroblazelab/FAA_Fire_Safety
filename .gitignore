@@ -1,0 +1,10 @@
+# local session config (keep launch.json shareable, drop local state)
+.claude/settings.local.json
+
+# python
+__pycache__/
+*.pyc
+
+# OS noise
+Thumbs.db
+.DS_Store
