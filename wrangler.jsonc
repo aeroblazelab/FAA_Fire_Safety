@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers config: serve the static site from ./site
+  "name": "faa-fire-safety",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash"
+  }
+}
