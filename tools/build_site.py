@@ -182,6 +182,11 @@ SIGNIN_SUBS = [
 # nav item removed: the Conference entry (conference sites remain reachable from Meetings)
 CONFERENCE_NAV_RE = re.compile(r'<li>\s*<a href="/2022Conference/conference\.asp">\s*Conference\s*</a>\s*</li>', re.I)
 
+# meetings page: the offcanvas sidebar held only the sign-in block; once that is
+# removed, drop the empty sidebar, its Menu toggle, and widen the content column
+EMPTY_SIDEBAR_RE = re.compile(r'<div class="col-md-3 sidebar-offcanvas" id="sidebar">\s*</div>', re.S)
+MENU_TOGGLE_RE = re.compile(r'<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">.*?Menu</button>', re.S)
+
 HANDBOOK_NOTE = """
 <div class="handbook-official">
 <strong class="hb-title">&#128214; Looking for the official, current Handbook?</strong><br/>
@@ -191,10 +196,11 @@ scroll to the bottom of the DRS browse page, then click <strong>&ldquo;Fire Safe
 <strong>&ldquo;Aircraft Materials Fire Test Handbook&rdquo;</strong>.<br/>
 <span style="color:#8a6d00;">Note: the separate &ldquo;Revision&nbsp;3&rdquo; entry in DRS is <strong>not yet officially
 approved for use</strong>.</span><br/>
-<span style="color:#555;">Everything below is preserved for historical record only and is no longer updated.</span>
+<span style="color:#555;">The chapters and appendixes below are preserved for historical record only and are no longer updated.</span>
 </div>
-<button type="button" id="handbook-reveal-btn" class="handbook-reveal">&#9660; View historical Handbook content</button>
 """
+
+HANDBOOK_REVEAL_BTN = '<button type="button" id="handbook-reveal-btn" class="handbook-reveal">&#9660; View historical Handbook chapters &amp; appendixes</button>'
 
 SCRIPT_STRIP = [
     # Google Analytics (gtag) pair
@@ -290,21 +296,25 @@ def process(rawrel: str):
     text = POSTPONED_RE.sub("", text)
     text = CONFERENCE_NAV_RE.sub("", text)
     text = SIGNIN_BLOCK_RE.sub("", text)
+    cleaned = EMPTY_SIDEBAR_RE.sub("", text)
+    if cleaned != text:
+        text = MENU_TOGGLE_RE.sub("", cleaned).replace(
+            '<div class="col-md-9">', '<div class="col-md-12">', 1)
     if "<h3>Sign In</h3>" in text:
         for rx, repl in SIGNIN_SUBS:
             text = rx.sub(repl, text)
     if site in ("/handbook/index.html", "/handbook.html"):
         h2 = "<h2>Aircraft Materials Fire Test Handbook</h2>"
         text = text.replace(h2, h2 + HANDBOOK_NOTE, 1)
-        # collapse everything after the notice (up to </main>) behind the reveal button
-        start = text.find(HANDBOOK_NOTE)
-        if start >= 0:
-            start += len(HANDBOOK_NOTE)
-            end = text.find("</main>", start)
-            if end > start:
-                text = (text[:start]
-                        + '<div id="handbook-historical" style="display:none;">'
-                        + text[start:end] + "</div>" + text[end:])
+        # Resources and regulatory links stay visible; the chapter/appendix listing
+        # (from its heading to </main>) collapses behind the reveal button
+        chapters = "<h3>Individual Chapters and Appendixes"
+        start = text.find(chapters)
+        end = text.find("</main>", start)
+        if start >= 0 and end > start:
+            text = (text[:start] + HANDBOOK_REVEAL_BTN
+                    + '<div id="handbook-historical" style="display:none;">'
+                    + text[start:end] + "</div>" + text[end:])
     text = text.replace(LOGO_OLD, LOGO_NEW)
     text = text.replace(
         "Federal Aviation Administration\n                            <br />\n                            Fire Safety",

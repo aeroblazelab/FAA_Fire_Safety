@@ -122,12 +122,19 @@ sortable by year. Topics are assigned automatically from titles and abstracts. C
 <thead><tr><th style="width:60px;">Year</th><th style="width:100px;">Type</th><th style="width:180px;">Report No. / Meeting</th><th>Title</th><th style="width:190px;">Author / Presenter</th><th style="width:170px;">Topics</th></tr></thead>
 <tbody id="rows"></tbody>
 </table>
+<div style="margin:14px 0;text-align:center;">
+  <button type="button" id="pg-prev" class="btn btn-default" style="padding:6px 16px;">&larr; Previous</button>
+  <span id="pg-info" style="margin:0 14px;color:#555;"></span>
+  <button type="button" id="pg-next" class="btn btn-default" style="padding:6px 16px;">Next &rarr;</button>
+</div>
 </div>
 <script>
 var DATA = __DATA__;
 var tbody = document.getElementById("rows"), q = document.getElementById("q"),
     topic = document.getElementById("topic"), sortSel = document.getElementById("sort"),
-    count = document.getElementById("count");
+    count = document.getElementById("count"), PAGE = 50, page = 0,
+    pgPrev = document.getElementById("pg-prev"), pgNext = document.getElementById("pg-next"),
+    pgInfo = document.getElementById("pg-info");
 function esc(s){ var d=document.createElement("div"); d.textContent=s||""; return d.innerHTML; }
 function render(){
   var term = q.value.toLowerCase(), top = topic.value, mode = sortSel.value,
@@ -144,15 +151,25 @@ function render(){
     return mode==="ya" ? ya-yb || a.t.localeCompare(b.t) : yb-ya || a.t.localeCompare(b.t);
   });
   count.textContent = rows.length + " items";
+  var pages = Math.max(1, Math.ceil(rows.length / PAGE));
+  if (page >= pages) page = pages - 1;
+  if (page < 0) page = 0;
+  pgInfo.textContent = "Page " + (page + 1) + " of " + pages;
+  pgPrev.disabled = page === 0;
+  pgNext.disabled = page >= pages - 1;
+  rows = rows.slice(page * PAGE, (page + 1) * PAGE);
   tbody.innerHTML = rows.map(function(r){
     return "<tr><td>"+(r.y||"&mdash;")+"</td><td>"+r.k+"</td><td>"+r.n+"</td><td><a href=\\""+r.p+
       "\\" title=\\""+esc(r.ab)+"\\">"+esc(r.t)+"</a></td><td>"+esc(r.a)+"</td><td>"+r.c.map(esc).join("<br/>")+"</td></tr>";
   }).join("");
 }
 try { var usp = new URLSearchParams(location.search); if (usp.get("q")) q.value = usp.get("q"); } catch (e) {}
-q.addEventListener("input", render); topic.addEventListener("change", render);
+q.addEventListener("input", function(){ page = 0; render(); });
+topic.addEventListener("change", function(){ page = 0; render(); });
+pgPrev.addEventListener("click", function(){ page--; render(); window.scrollTo(0, 0); });
+pgNext.addEventListener("click", function(){ page++; render(); window.scrollTo(0, 0); });
 document.getElementById("kind").addEventListener("change", render);
-sortSel.addEventListener("change", render); render();
+sortSel.addEventListener("change", function(){ page = 0; render(); }); render();
 </script>
 """
 content = (CONTENT
