@@ -1,0 +1,4 @@
+# CODEOWNERS: make @a-feghali the code owner for the whole repository
+# Place this file in .github/CODEOWNERS so GitHub recognizes it for branch protection
+
+* @a-feghali
