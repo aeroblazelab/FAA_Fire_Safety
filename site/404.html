@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Not Found : FAA Fire Safety Archive</title>
+<link href="/archive-assets/banner.css" rel="stylesheet"/>
+<link rel="icon" href="/archive-assets/favicon.svg" type="image/svg+xml"/>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #1a1a1a; }
+.wrap { max-width: 640px; margin: 60px auto; padding: 0 20px; text-align: center; }
+h1 { font-size: 26px; }
+.actions a, .actions button {
+  display: inline-block; margin: 8px; padding: 10px 20px; font-size: 15px;
+  background: #0b4ea2; color: #fff; border: 0; border-radius: 5px;
+  text-decoration: none; cursor: pointer;
+}
+.muted { color: #555; font-size: 14px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div id="archive-banner">
+<strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; snapshot of the former FAA Fire Safety website (fire.tc.faa.gov) as of October 2025.
+</div>
+<div class="wrap">
+<h1>&#128293; Page not found in this archive</h1>
+<p class="muted">This page or file may not have been captured before the original FAA Fire Safety
+site went offline, or the address may have changed. Two good options:</p>
+<div class="actions">
+<a href="/reports/browse.html">Search the Reports &amp; Presentations Index</a>
+<button type="button" id="wb">Look for this page on the Wayback Machine</button>
+</div>
+<p class="muted"><a href="/">&larr; Back to the archive home page</a> &middot; <a href="/about-archive.html">About this archive</a></p>
+</div>
+<script>
+document.getElementById("wb").addEventListener("click", function () {
+  location.href = "https://web.archive.org/web/2024/https://www.fire.tc.faa.gov" +
+    location.pathname + location.search;
+});
+</script>
+</body>
+</html>

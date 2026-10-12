@@ -14,6 +14,10 @@
       'This archive is not affiliated with or endorsed by the Federal Aviation Administration. ' +
       'For current regulations and guidance, use the FAA’s ' +
       '<a href="https://drs.faa.gov/" target="_blank" rel="noopener">Dynamic Regulatory System (DRS)</a>.</p>' +
+      '<p style="font-size:13.5px;color:#555;">Built and hosted by ' +
+      '<a href="https://www.aeroblazelab.com/" target="_blank" rel="noopener">Aeroblaze Laboratory</a> ' +
+      'to keep these essential presentations, reports, and test resources accessible to the community ' +
+      'while official channels are unavailable. <a href="/about-archive.html">About this archive &rarr;</a></p>' +
       '<button type="button" id="am-ok">I understand &mdash; view the archive</button></div>';
     document.body.appendChild(o);
     document.getElementById("am-ok").addEventListener("click", function () {

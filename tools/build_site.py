@@ -126,6 +126,10 @@ ARCHIVE_JS = r"""// first-visit notice: shown once per browser session
       'This archive is not affiliated with or endorsed by the Federal Aviation Administration. ' +
       'For current regulations and guidance, use the FAA’s ' +
       '<a href="https://drs.faa.gov/" target="_blank" rel="noopener">Dynamic Regulatory System (DRS)</a>.</p>' +
+      '<p style="font-size:13.5px;color:#555;">Built and hosted by ' +
+      '<a href="https://www.aeroblazelab.com/" target="_blank" rel="noopener">Aeroblaze Laboratory</a> ' +
+      'to keep these essential presentations, reports, and test resources accessible to the community ' +
+      'while official channels are unavailable. <a href="/about-archive.html">About this archive &rarr;</a></p>' +
       '<button type="button" id="am-ok">I understand &mdash; view the archive</button></div>';
     document.body.appendChild(o);
     document.getElementById("am-ok").addEventListener("click", function () {
@@ -154,10 +158,118 @@ BANNER = """
 <strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; a <strong>snapshot of the former FAA Fire Safety website</strong> (fire.tc.faa.gov) as of <strong>October 2025</strong>, preserved from the
 <a href="https://web.archive.org/web/20241207155156/https://www.fire.tc.faa.gov/">Internet Archive</a>.
 <strong>Historical record only; no longer updated. Not affiliated with or endorsed by the FAA.</strong>
+&middot; <a href="/about-archive.html">About this archive</a>
 </div>
 """
 BANNER_LINK = ('<link href="/archive-assets/banner.css" rel="stylesheet"/>'
+               '<link rel="icon" href="/archive-assets/favicon.svg" type="image/svg+xml"/>'
                '<script src="/archive-assets/archive.js" defer></script>')
+
+FAVICON_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<circle cx="32" cy="32" r="30" fill="#b22222"/>
+<path d="M32 12c4 8 12 12 12 22a12 12 0 0 1-24 0c0-6 3-9 6-13 0 4 2 6 4 7-1-5 0-11 2-16z" fill="#ffc107"/>
+</svg>
+"""
+
+PAGE_404 = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Not Found : FAA Fire Safety Archive</title>
+<link href="/archive-assets/banner.css" rel="stylesheet"/>
+<link rel="icon" href="/archive-assets/favicon.svg" type="image/svg+xml"/>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #1a1a1a; }
+.wrap { max-width: 640px; margin: 60px auto; padding: 0 20px; text-align: center; }
+h1 { font-size: 26px; }
+.actions a, .actions button {
+  display: inline-block; margin: 8px; padding: 10px 20px; font-size: 15px;
+  background: #0b4ea2; color: #fff; border: 0; border-radius: 5px;
+  text-decoration: none; cursor: pointer;
+}
+.muted { color: #555; font-size: 14px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div id="archive-banner">
+<strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; snapshot of the former FAA Fire Safety website (fire.tc.faa.gov) as of October 2025.
+</div>
+<div class="wrap">
+<h1>&#128293; Page not found in this archive</h1>
+<p class="muted">This page or file may not have been captured before the original FAA Fire Safety
+site went offline, or the address may have changed. Two good options:</p>
+<div class="actions">
+<a href="/reports/browse.html">Search the Reports &amp; Presentations Index</a>
+<button type="button" id="wb">Look for this page on the Wayback Machine</button>
+</div>
+<p class="muted"><a href="/">&larr; Back to the archive home page</a> &middot; <a href="/about-archive.html">About this archive</a></p>
+</div>
+<script>
+document.getElementById("wb").addEventListener("click", function () {
+  location.href = "https://web.archive.org/web/2024/https://www.fire.tc.faa.gov" +
+    location.pathname + location.search;
+});
+</script>
+</body>
+</html>
+"""
+
+ROBOTS_TXT = """User-agent: *
+Allow: /
+
+Sitemap: https://firesafety.aeroblazelab.com/sitemap.xml
+"""
+
+ABOUT_CONTENT = """
+<a name="content"></a>
+<div class="container-fluid">
+<h2>About This Archive</h2>
+
+<p><strong>This is an unofficial, historical archive of the former FAA Fire Safety website</strong>
+(<code>fire.tc.faa.gov</code>) &mdash; the online home of the Fire Safety Branch at the FAA William J.
+Hughes Technical Center. The original site went offline and was not restored. This archive is a
+<strong>snapshot as captured through October 2025</strong>, rebuilt from pages and files preserved by the
+<a href="https://web.archive.org/web/20241207155156/https://www.fire.tc.faa.gov/">Internet Archive&rsquo;s Wayback Machine</a>.
+It is not affiliated with or endorsed by the Federal Aviation Administration, and its content is
+<strong>no longer being updated</strong>.</p>
+
+<h3>Why this exists</h3>
+<p>For decades, the Fire Safety site was where the aviation community went for fire test methods, the
+<em>Aircraft Materials Fire Test Handbook</em>, working-group meeting presentations, training videos, and
+over a thousand technical reports &mdash; material that labs, manufacturers, designated engineering
+representatives, and researchers rely on in day-to-day certification work. When the site disappeared,
+that access disappeared with it. This archive is a <strong>temporary bridge</strong>: a place to keep those
+essential presentations, reports, and files reachable until official channels fully restore them.</p>
+
+<h3>Who built it</h3>
+<p>This archive was built and is hosted by
+<a href="https://www.aeroblazelab.com/"><strong>Aeroblaze Laboratory</strong></a>, an FAA-accepted
+aircraft interior flammability testing laboratory that depends on &mdash; and believes in open access
+to &mdash; this body of public fire-safety research.</p>
+
+<h3>What&rsquo;s here, and what isn&rsquo;t</h3>
+<ul>
+<li>All major sections of the original site: working-group pages, ~68 meeting archives, nine
+international conference sites (1998&ndash;2022), the Fire Test Handbook, and a searchable
+<a href="/reports/browse.html">Reports &amp; Presentations Index</a> built from the original report database.</li>
+<li>Documents are preserved exactly as published, including original FAA authorship and attribution.</li>
+<li>Some content was never captured before the site went offline and could not be recovered; links to
+missing items fall back to a Wayback Machine lookup. Pages behind the old meeting-registration login
+were never publicly archived.</li>
+</ul>
+
+<h3>Official sources</h3>
+<p>For current, authoritative material, use the FAA&rsquo;s
+<a href="https://drs.faa.gov/">Dynamic Regulatory System (DRS)</a> and the
+<a href="https://rosap.ntl.bts.gov/">National Transportation Library (ROSA-P)</a>. Works of the U.S.
+Government are in the public domain (17 U.S.C. &sect; 105).</p>
+
+<h3>Problems or corrections</h3>
+<p>Found a broken link, a missing document you can source, or an error? Open an issue on the
+<a href="https://github.com/a-feghali/FAA_Fire_Safety">project&rsquo;s GitHub repository</a>.</p>
+</div>
+"""
 
 LOGO_OLD = '<img src="/Resources/logoFAA.png" alt="FAA Fire Safety" />'
 LOGO_NEW = '<span style="display:inline-block;width:36px;height:36px;border-radius:50%;background:#b22222;color:#fff;font-size:20px;text-align:center;line-height:36px;vertical-align:middle;" aria-hidden="true">&#128293;</span>'
@@ -340,8 +452,36 @@ def main():
     assets.mkdir(parents=True, exist_ok=True)
     (assets / "banner.css").write_text(BANNER_CSS, encoding="utf-8")
     (assets / "archive.js").write_text(ARCHIVE_JS, encoding="utf-8")
+    (assets / "favicon.svg").write_text(FAVICON_SVG, encoding="utf-8")
+    (OUT / "404.html").write_text(PAGE_404, encoding="utf-8")
+    (OUT / "robots.txt").write_text(ROBOTS_TXT, encoding="utf-8")
     for rawrel in raw_to_site:
         process(rawrel)
+    # about page: reuse the site's own shell (header/nav/footer) around our content
+    shell = (OUT / "directions.html").read_text(encoding="utf-8")
+    m = re.search(r"(<main[^>]*>)(.*)(</main>)", shell, re.S)
+    about = shell[:m.end(1)] + ABOUT_CONTENT + shell[m.start(3):]
+    about = re.sub(r"<title>[^<]*</title>", "<title>About This Archive : FAA Fire Safety</title>", about, 1)
+    (OUT / "about-archive.html").write_text(about, encoding="utf-8")
+    # sitemap: every page at its pretty url
+    base = "https://firesafety.aeroblazelab.com"
+    urls = []
+    for p in sorted(OUT.rglob("*.html")):
+        rel = p.relative_to(OUT).as_posix()
+        if rel == "404.html":
+            continue
+        if rel.endswith("/index.html"):
+            rel = rel[: -len("index.html")]
+        elif rel == "index.html":
+            rel = ""
+        else:
+            rel = rel[: -len(".html")]
+        urls.append(f"<url><loc>{base}/{rel}</loc></url>")
+    (OUT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
+    print("sitemap urls:", len(urls))
     # copy assets referenced from site root (css/js/images) into site tree from Drive files/
     print("pages:", stats["written"], " link rewrites:", dict(stats))
     print("\nTop unresolved link targets:")

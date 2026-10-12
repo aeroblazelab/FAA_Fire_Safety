@@ -64,10 +64,30 @@ def topics_for(r):
     hits = [name for name, pat in TOPICS if re.search(pat, blob)]
     return hits[:2] if hits else ["General Fire Safety"]
 
+# fallback year: the year a PDF was FIRST captured by the Wayback Machine
+# (reports were typically crawled within a year or two of posting) -- shown as approximate
+first_seen = {}
+cap_file = pathlib.Path("G:/My Drive/FAA_Fire_Safety_Archive/_manifests/all_captures.txt")
+if cap_file.exists():
+    with open(cap_file, encoding="utf-8", errors="replace") as f:
+        for line in f:
+            parts = line.split()
+            if len(parts) >= 3 and "/pdf/" in parts[1].lower():
+                base = parts[1].rsplit("/", 1)[-1].lower()
+                yr = int(parts[2][:4])
+                if base not in first_seen or yr < first_seen[base]:
+                    first_seen[base] = yr
+
 rows = []
 for r in merged:
+    y = year_from(r)
+    approx = False
+    if not y:
+        y = first_seen.get(r["pdf"].lower().rsplit("/", 1)[-1])
+        approx = y is not None
     rows.append({
-        "y": year_from(r),
+        "y": y,
+        "yx": approx,
         "k": "Report",
         "n": r.get("report", ""),
         "t": r.get("title", ""),
@@ -159,7 +179,7 @@ function render(){
   pgNext.disabled = page >= pages - 1;
   rows = rows.slice(page * PAGE, (page + 1) * PAGE);
   tbody.innerHTML = rows.map(function(r){
-    return "<tr><td>"+(r.y||"&mdash;")+"</td><td>"+r.k+"</td><td>"+r.n+"</td><td><a href=\\""+r.p+
+    return "<tr><td>"+(r.y ? (r.yx ? "~"+r.y : r.y) : "&mdash;")+"</td><td>"+r.k+"</td><td>"+r.n+"</td><td><a href=\\""+r.p+
       "\\" title=\\""+esc(r.ab)+"\\">"+esc(r.t)+"</a></td><td>"+esc(r.a)+"</td><td>"+r.c.map(esc).join("<br/>")+"</td></tr>";
   }).join("");
 }
