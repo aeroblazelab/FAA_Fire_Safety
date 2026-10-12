@@ -43,6 +43,22 @@ python tools/build_reports_index.py  # generate the index page
 python tools/serve.py              # preview at http://localhost:8787
 ```
 
+## Contributing
+
+Issues and pull requests are welcome — especially reports of broken links, missing documents
+you can source elsewhere, or corrections to the automatic topic categorization. All changes to
+`main` require review (see `.github/CODEOWNERS`). Please don't commit large binary files;
+the file archive lives in object storage, not git.
+
+## License & provenance
+
+- **Archived content** (reports, presentations, page text, images, videos): works of the U.S.
+  Government, public domain under 17 U.S.C. § 105. Original authorship and FAA attribution are
+  preserved within the documents themselves.
+- **Build pipeline** (`tools/`): see `LICENSE`.
+- Every page was sourced from the Wayback Machine (latest capture per URL); download manifests
+  recording the exact capture timestamps are retained for reproducibility.
+
 ## Status
 
 - [x] Full Wayback enumeration (194k captures, 69k unique URLs)
