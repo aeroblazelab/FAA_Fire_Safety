@@ -40,3 +40,4 @@
   background: #e9ecef; color: #333; border: 1px solid #adb5bd; border-radius: 5px; cursor: pointer;
 }
 .handbook-reveal:hover { background: #dde0e3; }
+.hb-hidden { display: none !important; }

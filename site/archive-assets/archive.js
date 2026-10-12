@@ -29,13 +29,26 @@
   else show();
 })();
 
-// handbook: collapse historical content behind a reveal button
+// handbook: collapse historical content behind a reveal button.
+// The chapter listing spans several layout containers, so instead of a wrapper
+// div we hide every element that FOLLOWS the button (walking sibling chains up
+// to <main>/<body>), which works regardless of nesting.
 (function () {
-  var hist = document.getElementById("handbook-historical");
-  if (!hist) return;
   var btn = document.getElementById("handbook-reveal-btn");
+  if (!btn) return;
+  var stopAt = btn.closest("main") || document.body;
+  var hidden = [];
+  var node = btn;
+  while (node && node !== stopAt) {
+    for (var sib = node.nextElementSibling; sib; sib = sib.nextElementSibling) {
+      if (sib.tagName === "SCRIPT" || sib.tagName === "FOOTER") continue;
+      hidden.push(sib);
+      sib.classList.add("hb-hidden");
+    }
+    node = node.parentElement;
+  }
   btn.addEventListener("click", function () {
-    hist.style.display = "";
+    hidden.forEach(function (el) { el.classList.remove("hb-hidden"); });
     btn.style.display = "none";
   });
 })();

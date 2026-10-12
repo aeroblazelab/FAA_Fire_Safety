@@ -108,6 +108,7 @@ BANNER_CSS = """/* single source of truth for the archive banner, referenced by 
   background: #e9ecef; color: #333; border: 1px solid #adb5bd; border-radius: 5px; cursor: pointer;
 }
 .handbook-reveal:hover { background: #dde0e3; }
+.hb-hidden { display: none !important; }
 """
 
 ARCHIVE_JS = r"""// first-visit notice: shown once per browser session
@@ -141,13 +142,26 @@ ARCHIVE_JS = r"""// first-visit notice: shown once per browser session
   else show();
 })();
 
-// handbook: collapse historical content behind a reveal button
+// handbook: collapse historical content behind a reveal button.
+// The chapter listing spans several layout containers, so instead of a wrapper
+// div we hide every element that FOLLOWS the button (walking sibling chains up
+// to <main>/<body>), which works regardless of nesting.
 (function () {
-  var hist = document.getElementById("handbook-historical");
-  if (!hist) return;
   var btn = document.getElementById("handbook-reveal-btn");
+  if (!btn) return;
+  var stopAt = btn.closest("main") || document.body;
+  var hidden = [];
+  var node = btn;
+  while (node && node !== stopAt) {
+    for (var sib = node.nextElementSibling; sib; sib = sib.nextElementSibling) {
+      if (sib.tagName === "SCRIPT" || sib.tagName === "FOOTER") continue;
+      hidden.push(sib);
+      sib.classList.add("hb-hidden");
+    }
+    node = node.parentElement;
+  }
   btn.addEventListener("click", function () {
-    hist.style.display = "";
+    hidden.forEach(function (el) { el.classList.remove("hb-hidden"); });
     btn.style.display = "none";
   });
 })();
@@ -244,9 +258,10 @@ essential presentations, reports, and files reachable until official channels fu
 
 <h3>Who built it</h3>
 <p>This archive was built and is hosted by
-<a href="https://www.aeroblazelab.com/"><strong>Aeroblaze Laboratory</strong></a>, an FAA-accepted
-aircraft interior flammability testing laboratory that depends on &mdash; and believes in open access
-to &mdash; this body of public fire-safety research.</p>
+<a href="https://www.aeroblazelab.com/"><strong>Aeroblaze Laboratory</strong></a>, an independent
+test laboratory specializing in aerospace materials testing and certification. Aeroblaze depends on
+&mdash; and believes in open access to &mdash; this body of public fire-safety research, and maintains
+this archive as a service to the community that uses it.</p>
 
 <h3>What&rsquo;s here, and what isn&rsquo;t</h3>
 <ul>
@@ -418,15 +433,14 @@ def process(rawrel: str):
     if site in ("/handbook/index.html", "/handbook.html"):
         h2 = "<h2>Aircraft Materials Fire Test Handbook</h2>"
         text = text.replace(h2, h2 + HANDBOOK_NOTE, 1)
-        # Resources and regulatory links stay visible; the chapter/appendix listing
-        # (from its heading to </main>) collapses behind the reveal button
+        # Resources and regulatory links stay visible; everything from the chapter
+        # heading onward is hidden by archive.js (a wrapper div cannot be used here:
+        # the region crosses layout-container boundaries, so browsers would pop
+        # content back out of it)
         chapters = "<h3>Individual Chapters and Appendixes"
         start = text.find(chapters)
-        end = text.find("</main>", start)
-        if start >= 0 and end > start:
-            text = (text[:start] + HANDBOOK_REVEAL_BTN
-                    + '<div id="handbook-historical" style="display:none;">'
-                    + text[start:end] + "</div>" + text[end:])
+        if start >= 0:
+            text = text[:start] + HANDBOOK_REVEAL_BTN + text[start:]
     text = text.replace(LOGO_OLD, LOGO_NEW)
     text = text.replace(
         "Federal Aviation Administration\n                            <br />\n                            Fire Safety",
