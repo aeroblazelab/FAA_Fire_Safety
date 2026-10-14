@@ -450,6 +450,11 @@ def process(rawrel: str):
     # header search box: repoint the dead faa.gov search at the local index
     text = re.sub(r'action="https://web\.archive\.org/web/[^"]*faa\.gov/search/?"|action="https?://(?:www\.)?faa\.gov/search/?"',
                   'action="/reports/browse.html"', text)
+    # meetings: DETAILS links whose detail page was never captured would dead-end
+    # on a Wayback lookup; the meeting row already shows date/group/location, so
+    # drop the useless link instead (captured detail pages keep their links)
+    text = re.sub(r'<a href="https://web\.archive\.org/web/2024/[^"]*meeting_details[^"]*"[^>]*>\s*DETAILS\s*</a>',
+                  "", text)
     # nav: Reports entry goes straight to the browsable index, labeled to match it
     text = text.replace('<a href="/reports/reports.asp.html">Reports</a>',
                         '<a href="/reports/browse.html">Reports &amp; Presentations</a>')
