@@ -64,7 +64,9 @@ HIST = pathlib.Path(r"G:\My Drive\FAA_Fire_Safety_Archive\raw_html_history\listr
 
 records = {}
 label_stats = collections.Counter()
-files = sorted(RAW.glob("listresults.asp__Q_*.html")) + sorted(HIST.glob("*.html"))
+HIST2 = pathlib.Path("G:/My Drive/FAA_Fire_Safety_Archive/raw_html_history/searchresults")
+files = (sorted(RAW.glob("listresults.asp__Q_*.html")) + sorted(RAW.glob("searchresults.asp__Q_*.html"))
+         + sorted(HIST.glob("*.html")) + sorted(HIST2.glob("*.html")))
 for f in files:
     text = f.read_text(encoding="utf-8", errors="replace")
     recs = parse_new(text) if "report-headings" in text else parse_old(text)

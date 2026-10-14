@@ -97,6 +97,38 @@ for r in merged:
         "ab": (r.get("abstract", "") or "")[:300],
     })
 
+# ---- unindexed report PDFs: metadata recovered from the PDF files themselves ----
+pdfmeta_file = SITE / "data" / "reports_pdfmeta.json"
+if pdfmeta_file.exists():
+    have = {r["p"].lower().rsplit("/", 1)[-1] for r in rows}
+    JUNK_TITLE = re.compile(r"^(of Transportation|U\.?S\.? Depa|[\W\d]*$)", re.I)
+    JUNK_AUTHOR = re.compile(r"^(unknown|user|owner|admin|faa$)", re.I)
+    added = 0
+    for r in json.load(open(pdfmeta_file, encoding="utf-8")):
+        base = r["pdf"].lower().rsplit("/", 1)[-1]
+        if base in have:
+            continue
+        title = (r.get("title") or "").strip()
+        if not title or JUNK_TITLE.match(title):
+            title = re.sub(r"[-_]+", " ", base.rsplit(".", 1)[0]).strip()
+        author = (r.get("author") or "").strip()
+        if JUNK_AUTHOR.match(author) or author.lower() == title.lower():
+            author = ""
+        y = year_from({"report": "", "pdf": r["pdf"]})
+        approx = False
+        if not y:
+            y = first_seen.get(base)
+            approx = y is not None
+        rows.append({
+            "y": y, "yx": approx, "k": "Report", "n": "",
+            "t": title[:220], "a": author,
+            "p": FILE_BASE + r["pdf"],
+            "c": topics_for({"title": title, "abstract": ""}),
+            "ab": "",
+        })
+        added += 1
+    print("pdf-metadata entries added:", added)
+
 # ---- meeting presentations ----
 pres = json.load(open(SITE / "data" / "presentations.json", encoding="utf-8"))
 for r in pres:
@@ -127,7 +159,7 @@ CONTENT = """
 <p>All __COUNT__ technical reports and meeting presentations recovered from the original site, browsable by topic and
 sortable by year. Topics are assigned automatically from titles and abstracts. Click a title to open the file.</p>
 <div style="margin:10px 0;">
-  <input id="q" type="text" placeholder="Search title, author, abstract, report number&hellip;"
+  <input id="idx-q" type="text" placeholder="Search title, author, abstract, report number&hellip;"
          style="width:60%;max-width:480px;padding:6px 10px;" />
   <select id="kind" style="padding:6px;">
     <option value="">Reports + Presentations</option><option>Report</option><option>Presentation</option>
@@ -150,7 +182,7 @@ sortable by year. Topics are assigned automatically from titles and abstracts. C
 </div>
 <script>
 var DATA = __DATA__;
-var tbody = document.getElementById("rows"), q = document.getElementById("q"),
+var tbody = document.getElementById("rows"), q = document.getElementById("idx-q"),
     topic = document.getElementById("topic"), sortSel = document.getElementById("sort"),
     count = document.getElementById("count"), PAGE = 50, page = 0,
     pgPrev = document.getElementById("pg-prev"), pgNext = document.getElementById("pg-next"),

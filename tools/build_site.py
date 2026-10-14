@@ -450,9 +450,9 @@ def process(rawrel: str):
     # header search box: repoint the dead faa.gov search at the local index
     text = re.sub(r'action="https://web\.archive\.org/web/[^"]*faa\.gov/search/?"|action="https?://(?:www\.)?faa\.gov/search/?"',
                   'action="/reports/browse.html"', text)
-    # nav: Reports entry goes straight to the browsable index
+    # nav: Reports entry goes straight to the browsable index, labeled to match it
     text = text.replace('<a href="/reports/reports.asp.html">Reports</a>',
-                        '<a href="/reports/browse.html">Reports</a>')
+                        '<a href="/reports/browse.html">Reports &amp; Presentations</a>')
     text = text.replace("</head>", BANNER_LINK + "\n</head>", 1)
     text = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + BANNER, text, count=1)
     dest = OUT / site.lstrip("/")
