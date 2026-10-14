@@ -12,7 +12,7 @@ Output:
 """
 import os, re, sys, urllib.parse, pathlib, collections
 
-DRIVE = r"G:\My Drive\FAA_Fire_Safety_Archive"
+DRIVE = r"G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive"
 RAW = os.path.join(DRIVE, "raw_html")
 MAP = os.path.join(DRIVE, "_manifests", "html_map.tsv")
 MANIFEST = os.path.join(DRIVE, "_manifests", "latest_manifest.txt")

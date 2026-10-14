@@ -3,7 +3,7 @@
 (materials/systems/cabin, all meetID variants) into site/data/presentations.json."""
 import re, json, html, pathlib, collections
 
-RAW = pathlib.Path(r"G:\My Drive\FAA_Fire_Safety_Archive\raw_html")
+RAW = pathlib.Path(r"G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive\raw_html")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "site" / "data"
 
 TAG = re.compile(r"<[^>]+>")

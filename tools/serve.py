@@ -4,7 +4,7 @@ import http.server, socketserver, urllib.parse, pathlib, functools, os
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 SITE = REPO / "site"
-FILES = pathlib.Path(r"G:\My Drive\FAA_Fire_Safety_Archive\files")
+FILES = pathlib.Path(r"G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive\files")
 PORT = int(os.environ.get("PORT", "8787"))
 
 class Handler(http.server.SimpleHTTPRequestHandler):

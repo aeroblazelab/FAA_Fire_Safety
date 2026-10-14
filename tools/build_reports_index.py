@@ -67,7 +67,7 @@ def topics_for(r):
 # fallback year: the year a PDF was FIRST captured by the Wayback Machine
 # (reports were typically crawled within a year or two of posting) -- shown as approximate
 first_seen = {}
-cap_file = pathlib.Path("G:/My Drive/FAA_Fire_Safety_Archive/_manifests/all_captures.txt")
+cap_file = pathlib.Path("G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive/_manifests/all_captures.txt")
 if cap_file.exists():
     with open(cap_file, encoding="utf-8", errors="replace") as f:
         for line in f:

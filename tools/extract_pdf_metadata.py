@@ -6,7 +6,7 @@ import json, pathlib, re, sys
 from pypdf import PdfReader
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
-PDFDIR = pathlib.Path(r"G:\My Drive\FAA_Fire_Safety_Archive\files\pdf")
+PDFDIR = pathlib.Path(r"G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive\files\pdf")
 OUT = REPO / "site" / "data" / "reports_pdfmeta.json"
 
 data = json.load(open(REPO / "site" / "data" / "reports.json", encoding="utf-8"))

@@ -3,7 +3,7 @@
 into site/data/reports.json. Dedupes across overlapping captures by PDF path/title."""
 import re, json, glob, html, pathlib, collections
 
-RAW = pathlib.Path(r"G:\My Drive\FAA_Fire_Safety_Archive\raw_html\reports")
+RAW = pathlib.Path(r"G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive\raw_html\reports")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "site" / "data"
 
 TAG = re.compile(r"<[^>]+>")
@@ -60,11 +60,11 @@ def parse_new(text):
             out.append(rec)
     return out
 
-HIST = pathlib.Path(r"G:\My Drive\FAA_Fire_Safety_Archive\raw_html_history\listresults")
+HIST = pathlib.Path(r"G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive\raw_html_history\listresults")
 
 records = {}
 label_stats = collections.Counter()
-HIST2 = pathlib.Path("G:/My Drive/FAA_Fire_Safety_Archive/raw_html_history/searchresults")
+HIST2 = pathlib.Path("G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive/raw_html_history/searchresults")
 files = (sorted(RAW.glob("listresults.asp__Q_*.html")) + sorted(RAW.glob("searchresults.asp__Q_*.html"))
          + sorted(HIST.glob("*.html")) + sorted(HIST2.glob("*.html")))
 for f in files:
