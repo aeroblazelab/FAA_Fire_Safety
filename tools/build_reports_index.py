@@ -151,6 +151,8 @@ shell = (SITE / "directions.html").read_text(encoding="utf-8")
 m = re.search(r"(<main[^>]*>)(.*)(</main>)", shell, re.S)
 head, tail = shell[:m.end(1)], shell[m.start(3):]
 head = re.sub(r"<title>[^<]*</title>", "<title>Report Index : FAA Fire Safety</title>", head, 1)
+head = re.sub(r'<link rel="canonical" href="[^"]*"/>',
+              '<link rel="canonical" href="https://firesafety.aeroblazelab.com/reports/browse"/>', head, 1)
 
 CONTENT = """
 <a name="content"></a>

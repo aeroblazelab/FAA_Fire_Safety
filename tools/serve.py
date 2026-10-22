@@ -15,6 +15,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         p = (SITE / path.lstrip("/"))
         if path.endswith("/"):
             p = p / "index.html"
+        elif not p.exists() and p.with_name(p.name + ".html").is_file():
+            p = p.with_name(p.name + ".html")  # pretty url, as Cloudflare serves it
         return str(p)
 
     def end_headers(self):

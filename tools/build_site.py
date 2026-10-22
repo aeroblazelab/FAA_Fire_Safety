@@ -20,6 +20,8 @@ REPO = pathlib.Path(__file__).resolve().parent.parent
 OUT = REPO / "site"
 FILE_BASE = os.environ.get("FILE_BASE", "/files")  # where pdf/ppt/zip/etc. are served
 WAYBACK_FALLBACK = "https://web.archive.org/web/2024/"  # for links whose target was never captured locally
+SITE_BASE = "https://firesafety.aeroblazelab.com"  # public origin: canonical urls + sitemap
+SOFT404_MARK = "Oops, an error has occured"  # body of the original server's error page (served with a 200)
 
 HOST_RE = re.compile(r"^https?://(www\.)?fire\.tc\.faa\.gov(:80)?", re.I)
 
@@ -30,6 +32,20 @@ def norm_key(path_query: str) -> str:
 def qsafe(query: str) -> str:
     """must mirror the bash capture naming: tr -c 'A-Za-z0-9._=-' '_' | cut -c1-80"""
     return re.sub(r"[^A-Za-z0-9._=-]", "_", query)[:80]
+
+def pretty(site: str) -> str:
+    """Public url of a site path. The host (Cloudflare static assets, html_handling
+    auto-trailing-slash) serves /dir/index.html at /dir/ and /page.html at /page and
+    307-redirects any other spelling, so links, canonicals and the sitemap must all
+    use this form, percent-encoded the way Cloudflare canonicalizes it (= , & ...)."""
+    if site.endswith("/index.html"):
+        site = site[: -len("index.html")]
+    elif site.endswith(".html"):
+        site = site[: -len(".html")]
+    return urllib.parse.quote(site, safe="/")
+
+def canonical_link(site: str) -> str:
+    return f'<link rel="canonical" href="{SITE_BASE}{pretty(site)}"/>'
 
 # ---- load html map: original url -> static site path (lowercase) ----
 html_lookup = {}   # norm_key -> site path ("/..." lowercase)
@@ -46,6 +62,8 @@ with open(MAP, encoding="utf-8") as f:
             site = f"{path}__Q_{qsafe(query)}.html"
         elif rel == "" or rel.endswith("/"):
             site = f"{path}index.html"
+        elif path.lower().endswith("/index.html") or path.lower() == "index.html":
+            site = path  # the directory and its default document are the same page
         else:
             site = f"{path}.html"
         site = "/" + site.lower()
@@ -65,6 +83,30 @@ with open(MANIFEST, encoding="utf-8") as f:
         if not path:
             continue
         file_lookup[norm_key(path)] = "/" + urllib.parse.unquote(path)
+
+# ---- drop soft-404 captures ----
+# Before going offline the original server answered dead dynamic pages and garbage
+# urls (strings harvested from scripts) with its error page and a 200 status, so the
+# latest capture of ~1,600 urls is that page. It carries no content: drop those pages
+# and forget their urls, so links to them degrade to a Wayback lookup (which may still
+# find an earlier, real capture) instead of landing on an archived error message.
+raw_text = {}
+n_captures = len(raw_to_site)
+for rawrel, (site, orig) in list(raw_to_site.items()):
+    src = os.path.join(DRIVE, rawrel.replace("/", os.sep))
+    try:
+        text = open(src, encoding="utf-8", errors="replace").read()
+    except OSError:
+        del raw_to_site[rawrel]
+        continue
+    if SOFT404_MARK in text:
+        del raw_to_site[rawrel]
+        continue
+    raw_text[rawrel] = text
+surviving = {site for site, _ in raw_to_site.values()}
+for k in [k for k, s in html_lookup.items() if s not in surviving]:
+    del html_lookup[k]
+print("soft-404 / unreadable captures dropped:", n_captures - len(raw_to_site))
 
 BANNER_CSS = """/* single source of truth for the archive banner, referenced by every page */
 #archive-banner {
@@ -130,7 +172,7 @@ ARCHIVE_JS = r"""// first-visit notice: shown once per browser session
       '<p style="font-size:13.5px;color:#555;">Built and hosted by ' +
       '<a href="https://www.aeroblazelab.com/" target="_blank" rel="noopener">Aeroblaze Laboratory</a> ' +
       'to keep these essential presentations, reports, and test resources accessible to the community ' +
-      'while official channels are unavailable. <a href="/about-archive.html">About this archive &rarr;</a></p>' +
+      'while official channels are unavailable. <a href="/about-archive">About this archive &rarr;</a></p>' +
       '<button type="button" id="am-ok">I understand &mdash; view the archive</button></div>';
     document.body.appendChild(o);
     document.getElementById("am-ok").addEventListener("click", function () {
@@ -172,7 +214,7 @@ BANNER = """
 <strong class="lead">&#9888;&#65039; UNOFFICIAL ARCHIVE</strong> &mdash; a <strong>snapshot of the former FAA Fire Safety website</strong> (fire.tc.faa.gov) as of <strong>October 2025</strong>, preserved from the
 <a href="https://web.archive.org/web/20241207155156/https://www.fire.tc.faa.gov/">Internet Archive</a>.
 <strong>Historical record only; no longer updated. Not affiliated with or endorsed by the FAA.</strong>
-&middot; <a href="/about-archive.html">About this archive</a>
+&middot; <a href="/about-archive">About this archive</a>
 </div>
 """
 BANNER_LINK = ('<link href="/archive-assets/banner.css" rel="stylesheet"/>'
@@ -214,10 +256,10 @@ h1 { font-size: 26px; }
 <p class="muted">This page or file may not have been captured before the original FAA Fire Safety
 site went offline, or the address may have changed. Two good options:</p>
 <div class="actions">
-<a href="/reports/browse.html">Search the Reports &amp; Presentations Index</a>
+<a href="/reports/browse">Search the Reports &amp; Presentations Index</a>
 <button type="button" id="wb">Look for this page on the Wayback Machine</button>
 </div>
-<p class="muted"><a href="/">&larr; Back to the archive home page</a> &middot; <a href="/about-archive.html">About this archive</a></p>
+<p class="muted"><a href="/">&larr; Back to the archive home page</a> &middot; <a href="/about-archive">About this archive</a></p>
 </div>
 <script>
 document.getElementById("wb").addEventListener("click", function () {
@@ -267,7 +309,7 @@ this archive as a service to the community that uses it.</p>
 <ul>
 <li>All major sections of the original site: working-group pages, ~68 meeting archives, nine
 international conference sites (1998&ndash;2022), the Fire Test Handbook, and a searchable
-<a href="/reports/browse.html">Reports &amp; Presentations Index</a> built from the original report database.</li>
+<a href="/reports/browse">Reports &amp; Presentations Index</a> built from the original report database.</li>
 <li>Documents are preserved exactly as published, including original FAA authorship and attribution.</li>
 <li>Some content was never captured before the site went offline and could not be recovered; links to
 missing items fall back to a Wayback Machine lookup. Pages behind the old meeting-registration login
@@ -343,6 +385,7 @@ URL_ATTR = re.compile(r'''(\b(?:href|src|action)\s*=\s*)(['"])(.*?)\2''', re.I |
 
 stats = collections.Counter()
 unresolved = collections.Counter()
+written_pages = set()
 
 def rewrite_url(url: str, page_orig: str) -> str:
     u = url.strip()
@@ -385,13 +428,13 @@ def rewrite_url(url: str, page_orig: str) -> str:
     for k in candidates:
         if k in html_lookup:
             stats["page"] += 1
-            return html_lookup[k] + frag
+            return pretty(html_lookup[k]) + frag
     # page without its query variant captured -> try bare page
     if query:
         for k in (norm_key(path), norm_key(path) + "/"):
             if k in html_lookup:
                 stats["page_dropquery"] += 1
-                return html_lookup[k] + frag
+                return pretty(html_lookup[k]) + frag
     # downloadable file?
     fkey = norm_key(path)
     if fkey in file_lookup:
@@ -404,7 +447,7 @@ def rewrite_url(url: str, page_orig: str) -> str:
     # the old dynamic report search cannot work statically: send it to the browsable index
     if re.search(r"reports/(searchresults|listresults)\.asp$", norm_key(path)):
         stats["search_to_index"] += 1
-        return "/reports/browse.html"
+        return "/reports/browse"
     # not captured: degrade gracefully to a Wayback Machine lookup instead of a local 404
     stats["unresolved"] += 1
     unresolved[rel[:120]] += 1
@@ -412,11 +455,9 @@ def rewrite_url(url: str, page_orig: str) -> str:
 
 def process(rawrel: str):
     site, orig = raw_to_site[rawrel]
-    src = os.path.join(DRIVE, rawrel.replace("/", os.sep))  # map paths already start with raw_html/
-    try:
-        text = open(src, encoding="utf-8", errors="replace").read()
-    except OSError as e:
-        stats["read_error"] += 1
+    text = raw_text[rawrel]
+    if site in written_pages:
+        stats["dup_skipped"] += 1  # a directory and its index.html captured separately
         return
     for rx in SCRIPT_STRIP:
         text = rx.sub("", text)
@@ -449,20 +490,29 @@ def process(rawrel: str):
     # --- post-rewrite chrome wiring (our own paths; the rewriter must not touch them) ---
     # header search box: repoint the dead faa.gov search at the local index
     text = re.sub(r'action="https://web\.archive\.org/web/[^"]*faa\.gov/search/?"|action="https?://(?:www\.)?faa\.gov/search/?"',
-                  'action="/reports/browse.html"', text)
+                  'action="/reports/browse"', text)
     # meetings: DETAILS links whose detail page was never captured would dead-end
     # on a Wayback lookup; the meeting row already shows date/group/location, so
     # drop the useless link instead (captured detail pages keep their links)
     text = re.sub(r'<a href="https://web\.archive\.org/web/2024/[^"]*meeting_details[^"]*"[^>]*>\s*DETAILS\s*</a>',
                   "", text)
     # nav: Reports entry goes straight to the browsable index, labeled to match it
-    text = text.replace('<a href="/reports/reports.asp.html">Reports</a>',
-                        '<a href="/reports/browse.html">Reports &amp; Presentations</a>')
-    text = text.replace("</head>", BANNER_LINK + "\n</head>", 1)
-    text = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + BANNER, text, count=1)
+    text = text.replace('<a href="/reports/reports.asp">Reports</a>',
+                        '<a href="/reports/browse">Reports &amp; Presentations</a>')
+    # head chrome: banner css/js + canonical. Some captures close the head as </HEAD>
+    # and frameset shells / fragments have no head at all, so match loosely.
+    head_tags = BANNER_LINK + canonical_link(site)
+    text, n = re.subn(r"</head>", lambda m: head_tags + "\n" + m.group(0), text, count=1, flags=re.I)
+    if not n:
+        text, n = re.subn(r"<(?:body|frameset)\b", lambda m: "<head>" + head_tags + "</head>\n" + m.group(0),
+                          text, count=1, flags=re.I)
+    if not n:
+        text = "<head>" + head_tags + "</head>\n" + text
+    text = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + BANNER, text, count=1, flags=re.I)
     dest = OUT / site.lstrip("/")
     dest.parent.mkdir(parents=True, exist_ok=True)
     dest.write_text(text, encoding="utf-8")
+    written_pages.add(site)
     stats["written"] += 1
 
 def main():
@@ -481,21 +531,23 @@ def main():
     m = re.search(r"(<main[^>]*>)(.*)(</main>)", shell, re.S)
     about = shell[:m.end(1)] + ABOUT_CONTENT + shell[m.start(3):]
     about = re.sub(r"<title>[^<]*</title>", "<title>About This Archive : FAA Fire Safety</title>", about, 1)
+    about = re.sub(r'<link rel="canonical" href="[^"]*"/>', canonical_link("/about-archive.html"), about, 1)
     (OUT / "about-archive.html").write_text(about, encoding="utf-8")
-    # sitemap: every page at its pretty url
-    base = "https://firesafety.aeroblazelab.com"
-    urls = []
+    # prune pages left by an earlier build that this one did not write (dropped
+    # soft-404 captures, renamed outputs); browse.html belongs to build_reports_index.py
+    keep = written_pages | {"/about-archive.html", "/404.html", "/reports/browse.html"}
+    pruned = 0
     for p in sorted(OUT.rglob("*.html")):
-        rel = p.relative_to(OUT).as_posix()
-        if rel == "404.html":
-            continue
-        if rel.endswith("/index.html"):
-            rel = rel[: -len("index.html")]
-        elif rel == "index.html":
-            rel = ""
-        else:
-            rel = rel[: -len(".html")]
-        urls.append(f"<url><loc>{base}/{rel}</loc></url>")
+        if "/" + p.relative_to(OUT).as_posix() not in keep:
+            p.unlink()
+            pruned += 1
+    for d in sorted((d for d in OUT.rglob("*") if d.is_dir()), reverse=True):
+        if not any(d.iterdir()):
+            d.rmdir()
+    print("stale pages pruned:", pruned)
+    # sitemap: every page at its public url
+    urls = [f"<url><loc>{SITE_BASE}{pretty(site)}</loc></url>"
+            for site in sorted(keep - {"/404.html"}) if (OUT / site.lstrip("/")).is_file()]
     (OUT / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

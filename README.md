@@ -14,7 +14,7 @@ fire-safety community.
 
 ## What's here
 
-- `site/` — the deployable static site (~2,700 pages): all section pages, 68+ working-group
+- `site/` — the deployable static site (~1,100 pages): all section pages, 68+ working-group
   meeting pages, nine conference sites (1998–2022), the Aircraft Materials Fire Test Handbook
   section, and a searchable [Reports & Presentations Index](site/reports/browse.html) covering
   877 technical reports and 1,281 meeting presentations with automatic topic categorization.
@@ -74,7 +74,7 @@ the file archive lives in object storage, not git.
 ## Status
 
 - [x] Full Wayback enumeration (194k captures, 69k unique URLs)
-- [x] Site rebuild (2,675 pages, ~62k internal links rewritten)
+- [x] Site rebuild (1,081 pages after excluding ~1,600 captures of the original server's error page; ~38k internal links rewritten)
 - [x] Reports & Presentations index with topic filters
 - [x] PDFs downloaded (6,700+ files, 18 GB)
 - [ ] PowerPoint archive download (31 GB, in progress)
