@@ -17,7 +17,7 @@
       '<p style="font-size:13.5px;color:#555;">Built and hosted by ' +
       '<a href="https://www.aeroblazelab.com/" target="_blank" rel="noopener">Aeroblaze Laboratory</a> ' +
       'to keep these essential presentations, reports, and test resources accessible to the community ' +
-      'while official channels are unavailable. <a href="/about-archive.html">About this archive &rarr;</a></p>' +
+      'while official channels are unavailable. <a href="/about-archive">About this archive &rarr;</a></p>' +
       '<button type="button" id="am-ok">I understand &mdash; view the archive</button></div>';
     document.body.appendChild(o);
     document.getElementById("am-ok").addEventListener("click", function () {
