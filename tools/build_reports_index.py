@@ -1,8 +1,22 @@
 #!/usr/bin/env python3
 """Build the browsable report index: dedupe, infer year, assign topics,
 emit site/reports/browse.html (table UI styled like the rest of the site)."""
-import json, re, html, os, pathlib, collections
+import json, re, html, os, pathlib, collections, urllib.parse
+from archive_files import load_inventory
 FILE_BASE = os.environ.get("FILE_BASE", "/files")
+WAYBACK_FALLBACK = "https://web.archive.org/web/2024/https://www.fire.tc.faa.gov"
+inventory = load_inventory()
+unarchived = collections.Counter()
+
+def file_url(path: str) -> str:
+    """Public url of an archived file, spelled as the (case-sensitive) file host stores
+    it; a file the archive never got degrades to a Wayback lookup instead of a 404."""
+    path = "/" + path.lstrip("/")
+    key = urllib.parse.unquote(path).lstrip("/").lower()
+    if key in inventory:
+        return FILE_BASE + urllib.parse.quote(inventory[key])
+    unarchived[path] += 1
+    return WAYBACK_FALLBACK + urllib.parse.quote(urllib.parse.unquote(path))
 
 REPO = pathlib.Path(__file__).resolve().parent.parent
 SITE = REPO / "site"
@@ -92,7 +106,7 @@ for r in merged:
         "n": r.get("report", ""),
         "t": r.get("title", ""),
         "a": r.get("author", ""),
-        "p": FILE_BASE + r["pdf"] if r["pdf"].startswith("/") else FILE_BASE + "/" + r["pdf"],
+        "p": file_url(r["pdf"]),
         "c": topics_for(r),
         "ab": (r.get("abstract", "") or "")[:300],
     })
@@ -122,7 +136,7 @@ if pdfmeta_file.exists():
         rows.append({
             "y": y, "yx": approx, "k": "Report", "n": "",
             "t": title[:220], "a": author,
-            "p": FILE_BASE + r["pdf"],
+            "p": file_url(r["pdf"]),
             "c": topics_for({"title": title, "abstract": ""}),
             "ab": "",
         })
@@ -138,13 +152,16 @@ for r in pres:
         "n": r["group"].replace(" Working Group", " WG") + " &middot; " + r["date"],
         "t": r["title"],
         "a": r.get("presenter", ""),
-        "p": FILE_BASE + r["files"][0],
+        "p": file_url(r["files"][0]),
         "c": topics_for({"title": r["title"], "abstract": ""}),
         "ab": "",
     })
 rows.sort(key=lambda x: (-(x["y"] or 0), x["t"]))
 all_topics = sorted({c for r in rows for c in r["c"]})
 print("rows:", len(rows), " topics:", len(all_topics), " with year:", sum(1 for r in rows if r["y"]))
+print("rows whose file is not in the archive (linked to Wayback):", sum(unarchived.values()))
+for k, c in unarchived.most_common(10):
+    print(f"  {c:4d}  {k}")
 
 # ---- page template: reuse the site's own header/nav/footer ----
 shell = (SITE / "directions.html").read_text(encoding="utf-8")

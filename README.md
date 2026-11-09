@@ -14,7 +14,7 @@ fire-safety community.
 
 ## What's here
 
-- `site/` — the deployable static site (~1,100 pages): all section pages, 68+ working-group
+- `site/` — the deployable static site (~1,050 pages): all section pages, 68+ working-group
   meeting pages, nine conference sites (1998–2022), the Aircraft Materials Fire Test Handbook
   section, and a searchable [Reports & Presentations Index](site/reports/browse.html) covering
   877 technical reports and 1,281 meeting presentations with automatic topic categorization.
@@ -22,6 +22,12 @@ fire-safety community.
   - `build_site.py` — transforms raw Wayback captures into the static site (link rewriting,
     dynamic-URL flattening, tracking-script removal, branding/disclaimer injection).
     `FILE_BASE` env var sets where downloadable files are served from.
+  - `archive_files.py` — inventory of the file archive (`files/` on the shared drive, mirrored
+    to R2). The file host is case-sensitive and the original site's links often differ in case
+    from the archived file names, so every file link is resolved against this inventory and
+    emitted with the on-disk spelling; a file the archive never got links to Wayback instead
+    of 404ing. The walk is cached in `_manifests/files_inventory.txt`; pass `--reinventory`
+    to `build_site.py` (or delete the cache) after adding files to the archive.
   - `extract_reports.py` / `extract_presentations.py` — mine report and presentation metadata
     from captured database pages (three markup generations, 2004–2025).
   - `build_reports_index.py` — generates the searchable index page.
@@ -36,7 +42,7 @@ too large for git. It lives in object storage (Cloudflare R2) and the site links
 ## Build
 
 ```bash
-python tools/build_site.py          # raw captures -> site/
+python tools/build_site.py          # raw captures -> site/  (--reinventory after adding archive files)
 python tools/extract_reports.py    # mine report metadata
 python tools/extract_presentations.py
 python tools/build_reports_index.py  # generate the index page
@@ -74,7 +80,7 @@ the file archive lives in object storage, not git.
 ## Status
 
 - [x] Full Wayback enumeration (194k captures, 69k unique URLs)
-- [x] Site rebuild (1,081 pages after excluding ~1,600 captures of the original server's error page; ~38k internal links rewritten)
+- [x] Site rebuild (1,046 pages after excluding ~1,650 captures of the original server's error pages and empty dynamic pages; ~38k internal links rewritten)
 - [x] Reports & Presentations index with topic filters
 - [x] PDFs downloaded (6,700+ files, 18 GB)
 - [ ] PowerPoint archive download (31 GB, in progress)
