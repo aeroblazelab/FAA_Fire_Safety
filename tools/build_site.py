@@ -16,6 +16,11 @@ from archive_files import DRIVE, load_inventory
 RAW = os.path.join(DRIVE, "raw_html")
 MAP = os.path.join(DRIVE, "_manifests", "html_map.tsv")
 REPO = pathlib.Path(__file__).resolve().parent.parent
+# Windows caps paths at 260 chars unless long paths are enabled system-wide; the deepest
+# site/ pages blow past that when the repo sits in a long folder (a git worktree, say),
+# so address the output tree through the \\?\ prefix, which lifts the limit.
+if os.name == "nt" and not str(REPO).startswith("\\\\?\\"):
+    REPO = pathlib.Path("\\\\?\\" + str(REPO))
 OUT = REPO / "site"
 FILE_BASE = os.environ.get("FILE_BASE", "/files")  # where pdf/ppt/zip/etc. are served
 WAYBACK_FALLBACK = "https://web.archive.org/web/2024/"  # for links whose target was never captured locally
