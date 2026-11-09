@@ -11,17 +11,17 @@ Output:
                        file links rewritten to FILE_BASE + canonical captured path
 """
 import os, re, sys, urllib.parse, pathlib, collections
+from archive_files import DRIVE, load_inventory
 
-DRIVE = r"G:/Shared drives/Software & Apps/FAA Fire Safety Site/FAA_Fire_Safety_Archive"
 RAW = os.path.join(DRIVE, "raw_html")
 MAP = os.path.join(DRIVE, "_manifests", "html_map.tsv")
-MANIFEST = os.path.join(DRIVE, "_manifests", "latest_manifest.txt")
 REPO = pathlib.Path(__file__).resolve().parent.parent
 OUT = REPO / "site"
 FILE_BASE = os.environ.get("FILE_BASE", "/files")  # where pdf/ppt/zip/etc. are served
 WAYBACK_FALLBACK = "https://web.archive.org/web/2024/"  # for links whose target was never captured locally
 SITE_BASE = "https://firesafety.aeroblazelab.com"  # public origin: canonical urls + sitemap
-SOFT404_MARK = "Oops, an error has occured"  # body of the original server's error page (served with a 200)
+# bodies of the original server's error pages (both were served with a 200)
+SOFT404_MARKS = ("Oops, an error has occured", "Error processing SSI file")
 
 HOST_RE = re.compile(r"^https?://(www\.)?fire\.tc\.faa\.gov(:80)?", re.I)
 
@@ -70,43 +70,51 @@ with open(MAP, encoding="utf-8") as f:
         html_lookup[norm_key(rel)] = site
         raw_to_site[rawrel.replace("\\", "/")] = (site, orig)
 
-# ---- load file manifest: norm path -> canonical captured path (original case) ----
-file_lookup = {}
-with open(MANIFEST, encoding="utf-8") as f:
-    for line in f:
-        p = line.split()
-        if len(p) < 6 or p[3] == "text/html":
-            continue
-        orig = p[1]
-        rel = HOST_RE.sub("", orig).lstrip("/")
-        path = rel.partition("?")[0]
-        if not path:
-            continue
-        file_lookup[norm_key(path)] = "/" + urllib.parse.unquote(path)
+# ---- load file inventory: norm path -> path as stored on disk / the file host ----
+# (not the Wayback manifest: its spelling of a path can differ in case from the file
+# actually archived, and the file host is case-sensitive)
+file_lookup = load_inventory(refresh="--reinventory" in sys.argv)
 
-# ---- drop soft-404 captures ----
+# ---- drop soft-404 and empty captures ----
 # Before going offline the original server answered dead dynamic pages and garbage
 # urls (strings harvested from scripts) with its error page and a 200 status, so the
 # latest capture of ~1,600 urls is that page. It carries no content: drop those pages
 # and forget their urls, so links to them degrade to a Wayback lookup (which may still
 # find an earlier, real capture) instead of landing on an archived error message.
+# The same goes for the SSI include-error variant and for dynamic pages captured
+# without their query string, which rendered as an empty document.
+STRIP_RE = re.compile(r"<!--.*?-->|<(script|style)\b.*?</\1\s*>|<[^>]*>", re.S | re.I)
+
+def is_empty_page(text: str) -> bool:
+    if re.search(r"<(frameset|frame|iframe|img|meta\s+http-equiv)\b", text, re.I):
+        return False  # shells with no text of their own still carry content
+    return not re.search(r"\w", STRIP_RE.sub("", text))
+
 raw_text = {}
 n_captures = len(raw_to_site)
+dropped = collections.Counter()
 for rawrel, (site, orig) in list(raw_to_site.items()):
     src = os.path.join(DRIVE, rawrel.replace("/", os.sep))
     try:
         text = open(src, encoding="utf-8", errors="replace").read()
     except OSError:
         del raw_to_site[rawrel]
+        dropped["unreadable"] += 1
         continue
-    if SOFT404_MARK in text:
+    if any(mark in text for mark in SOFT404_MARKS):
         del raw_to_site[rawrel]
+        dropped["error page"] += 1
+        continue
+    if is_empty_page(text):
+        del raw_to_site[rawrel]
+        dropped["empty"] += 1
+        print("  empty capture dropped:", site)
         continue
     raw_text[rawrel] = text
 surviving = {site for site, _ in raw_to_site.values()}
 for k in [k for k, s in html_lookup.items() if s not in surviving]:
     del html_lookup[k]
-print("soft-404 / unreadable captures dropped:", n_captures - len(raw_to_site))
+print("captures dropped:", n_captures - len(raw_to_site), dict(dropped))
 
 BANNER_CSS = """/* single source of truth for the archive banner, referenced by every page */
 #archive-banner {
