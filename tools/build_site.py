@@ -10,7 +10,7 @@ Output:
   <repo>/site/         static site, lowercase paths
                        file links rewritten to FILE_BASE + canonical captured path
 """
-import os, re, sys, urllib.parse, pathlib, collections
+import os, re, sys, html, urllib.parse, pathlib, collections
 from archive_files import DRIVE, load_inventory
 
 RAW = os.path.join(DRIVE, "raw_html")
@@ -401,7 +401,8 @@ unresolved = collections.Counter()
 written_pages = set()
 
 def rewrite_url(url: str, page_orig: str) -> str:
-    u = url.strip()
+    # attribute values are HTML text: 'FAAR&amp;DEfforts.ppt' names the file FAAR&DEfforts.ppt
+    u = html.unescape(url.strip())
     if not u or u.startswith(("#", "mailto:", "javascript:", "data:")):
         return url
     # absolute external?
