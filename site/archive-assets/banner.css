@@ -41,3 +41,20 @@
 }
 .handbook-reveal:hover { background: #dde0e3; }
 .hb-hidden { display: none !important; }
+
+/* ROSA P (National Transportation Library) now hosts the official report collection */
+.rosap-official {
+  background: #e8f1fb; border: 3px solid #0b4ea2; border-radius: 8px;
+  padding: 16px 22px; margin: 16px 0; font-size: 16px; line-height: 1.7;
+}
+.rosap-official .ro-title { font-size: 19px; color: #0b4ea2; }
+.rosap-link {
+  display: inline-block; margin-left: 6px; padding: 0 6px; font-size: 11px; font-weight: bold;
+  line-height: 18px; vertical-align: middle; white-space: nowrap; text-decoration: none;
+  color: #0b4ea2; background: #e8f1fb; border: 1px solid #0b4ea2; border-radius: 3px;
+}
+a.rosap-link:hover { background: #0b4ea2; color: #fff; text-decoration: none; }
+.rosap-ext {
+  display: inline-block; margin-left: 4px; padding: 0 5px; font-size: 11px; line-height: 18px;
+  white-space: nowrap; color: #555; background: #f1f1f1; border: 1px solid #ccc; border-radius: 3px;
+}

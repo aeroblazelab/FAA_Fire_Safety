@@ -13,7 +13,10 @@
       '<p><strong>Content is historical record only and is no longer being updated.</strong> ' +
       'This archive is not affiliated with or endorsed by the Federal Aviation Administration. ' +
       'For current regulations and guidance, use the FAA’s ' +
-      '<a href="https://drs.faa.gov/" target="_blank" rel="noopener">Dynamic Regulatory System (DRS)</a>.</p>' +
+      '<a href="https://drs.faa.gov/" target="_blank" rel="noopener">Dynamic Regulatory System (DRS)</a>. ' +
+      'Fire Safety Branch <strong>technical reports</strong> are now officially published in the National Transportation Library’s ' +
+      '<a href="https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481" target="_blank" rel="noopener">ROSA P “FAA Fire Safety” collection</a>; ' +
+      'legacy reports, meeting presentations and conference material not on ROSA P remain available here.</p>' +
       '<p style="font-size:13.5px;color:#555;">Built and hosted by ' +
       '<a href="https://www.aeroblazelab.com/" target="_blank" rel="noopener">Aeroblaze Laboratory</a> ' +
       'to keep these essential presentations, reports, and test resources accessible to the community ' +

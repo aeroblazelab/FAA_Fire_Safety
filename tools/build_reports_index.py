@@ -22,6 +22,16 @@ REPO = pathlib.Path(__file__).resolve().parent.parent
 SITE = REPO / "site"
 data = json.load(open(SITE / "data" / "reports.json", encoding="utf-8"))
 
+# ---- ROSAP crosswalk (site/data/rosap.json): the FAA Fire Safety collection on the
+# National Transportation Library, https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481.
+# Records with "pdf" are the same report as an archived file (matched by report
+# number, else title); the rest exist only on ROSAP and are listed linking out to it.
+ROSAP_COLLECTION = "https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481"
+ROSAP_VIEW = "https://rosap.ntl.bts.gov/view/dot/"
+rosap = json.load(open(SITE / "data" / "rosap.json", encoding="utf-8"))
+rosap_by_file = {r["pdf"].lower(): r["rosap_id"] for r in rosap if r.get("pdf")}
+rosap_only = [r for r in rosap if not r.get("pdf")]
+
 # ---- dedupe by pdf basename (same report captured under path variants) ----
 def tnorm(t): return re.sub(r"\W+", "", t.lower())[:40]
 groups = collections.defaultdict(list)
@@ -107,6 +117,7 @@ for r in merged:
         "t": r.get("title", ""),
         "a": r.get("author", ""),
         "p": file_url(r["pdf"]),
+        "r": rosap_by_file.get(r["pdf"].lower().rsplit("/", 1)[-1], ""),
         "c": topics_for(r),
         "ab": (r.get("abstract", "") or "")[:300],
     })
@@ -137,11 +148,29 @@ if pdfmeta_file.exists():
             "y": y, "yx": approx, "k": "Report", "n": "",
             "t": title[:220], "a": author,
             "p": file_url(r["pdf"]),
+            "r": rosap_by_file.get(base, ""),
             "c": topics_for({"title": title, "abstract": ""}),
             "ab": "",
         })
         added += 1
     print("pdf-metadata entries added:", added)
+
+# ---- reports the archive never got: listed from ROSAP, linking to the record there ----
+for r in rosap_only:
+    rows.append({
+        "y": int(r["date"][:4]),
+        "k": "Report",
+        "n": r.get("report", ""),
+        "t": r["title"],
+        "a": r.get("author", ""),
+        "p": ROSAP_VIEW + r["rosap_id"],
+        "r": r["rosap_id"],
+        "x": 1,  # external: the file is on ROSAP, not in this archive
+        "c": topics_for({"title": r["title"], "abstract": r.get("abstract", "")}),
+        "ab": (r.get("abstract", "") or "")[:300],
+    })
+print("ROSAP-only reports listed:", len(rosap_only),
+      " archived reports linked to ROSAP:", sum(1 for r in rows if r.get("r") and not r.get("x")))
 
 # ---- meeting presentations ----
 pres = json.load(open(SITE / "data" / "presentations.json", encoding="utf-8"))
@@ -177,6 +206,16 @@ CONTENT = """
 <h2>Reports &amp; Presentations Index</h2>
 <p>All __COUNT__ technical reports and meeting presentations recovered from the original site, browsable by topic and
 sortable by year. Topics are assigned automatically from titles and abstracts. Click a title to open the file.</p>
+<div class="rosap-official">
+<strong class="ro-title">&#128218; Official source for Fire Safety Branch reports</strong><br/>
+The FAA now publishes its Fire Safety reports in the National Transportation Library&rsquo;s
+<a href="__ROSAP__" target="_blank" rel="noopener"><strong>ROSA P &ldquo;FAA Fire Safety&rdquo; collection</strong></a>,
+which is the authoritative, maintained copy. Reports that are also on ROSA P carry a
+<span class="rosap-link">ROSA&nbsp;P</span> link below; __NEWCOUNT__ reports that this archive never captured are listed from ROSA P and open there
+(marked <span class="rosap-ext">on ROSA P</span>).<br/>
+<span style="color:#555;">ROSA P does not hold the legacy report series (FSR, FAA-RD, FAA-NA, NBSIR &hellip;), the working-group meeting presentations,
+or the conference sites &mdash; those exist only here.</span>
+</div>
 <div style="margin:10px 0;">
   <input id="idx-q" type="text" placeholder="Search title, author, abstract, report number&hellip;"
          style="width:60%;max-width:480px;padding:6px 10px;" />
@@ -230,8 +269,11 @@ function render(){
   pgNext.disabled = page >= pages - 1;
   rows = rows.slice(page * PAGE, (page + 1) * PAGE);
   tbody.innerHTML = rows.map(function(r){
-    return "<tr><td>"+(r.y ? (r.yx ? "~"+r.y : r.y) : "&mdash;")+"</td><td>"+r.k+"</td><td>"+r.n+"</td><td><a href=\\""+r.p+
-      "\\" title=\\""+esc(r.ab)+"\\">"+esc(r.t)+"</a></td><td>"+esc(r.a)+"</td><td>"+r.c.map(esc).join("<br/>")+"</td></tr>";
+    var rosap = r.r ? " <a class=\\"rosap-link\\" href=\\"https://rosap.ntl.bts.gov/view/dot/"+r.r+
+      "\\" target=\\"_blank\\" rel=\\"noopener\\" title=\\"Official record in the National Transportation Library\\">ROSA&nbsp;P</a>" : "";
+    var ext = r.x ? " <span class=\\"rosap-ext\\">on ROSA P</span>" : "";
+    return "<tr><td>"+(r.y ? (r.yx ? "~"+r.y : r.y) : "&mdash;")+"</td><td>"+r.k+ext+"</td><td>"+r.n+"</td><td><a href=\\""+r.p+
+      "\\" title=\\""+esc(r.ab)+"\\""+(r.x ? " target=\\"_blank\\" rel=\\"noopener\\"" : "")+">"+esc(r.t)+"</a>"+rosap+"</td><td>"+esc(r.a)+"</td><td>"+r.c.map(esc).join("<br/>")+"</td></tr>";
   }).join("");
 }
 try { var usp = new URLSearchParams(location.search); if (usp.get("q")) q.value = usp.get("q"); } catch (e) {}
@@ -245,6 +287,8 @@ sortSel.addEventListener("change", function(){ page = 0; render(); }); render();
 """
 content = (CONTENT
            .replace("__COUNT__", str(len(rows)))
+           .replace("__ROSAP__", ROSAP_COLLECTION)
+           .replace("__NEWCOUNT__", str(len(rosap_only)))
            .replace("__TOPICOPTS__", "".join(f'<option>{html.escape(t)}</option>' for t in all_topics))
            .replace("__DATA__", json.dumps(rows, separators=(",", ":"))))
 out = SITE / "reports" / "browse.html"

@@ -1,0 +1,1679 @@
+[
+ {
+  "rosap_id": "93558",
+  "title": "Using Artificial Intelligence and Machine Learning for Standardized Fire Test Evaluation",
+  "date": "2026-07-01",
+  "report": "DOT/FAA/TC-26/17",
+  "author": "Ahmed Ben Sidhom; Giuseppina Carannante; Nidhal Carla Bouaynaya; Richard N. Walters",
+  "abstract": "This study integrates deep learning and computer vision (Faster R-CNN object detection) to analyze video records of FAA regulatory flame tests such as the Vertical Flame Propagation apparatus, automating detection of ignition timing, burn length, flame intensity and char area to standardize material flammability assessments."
+ },
+ {
+  "rosap_id": "93111",
+  "title": "Measuring the Fire Hazard of Aircraft Products in the Cone Calorimeter",
+  "date": "2025-10-01",
+  "report": "DOT/FAA/TC-25/10",
+  "author": "Richard E. Lyon; Tina Emami; Richard N. Walters; Timothy Salter",
+  "abstract": "A dimensionless group of reaction-to-fire properties called the product fire hazard is measured in cone calorimeter experiments and describes the contribution of a combustible product to fire growth of materials used in buildings, construction, and passenger aircraft cabins."
+ },
+ {
+  "rosap_id": "86558",
+  "title": "A State of Charge Analysis of Power Banks (38.5 Wh) Shipped by Air",
+  "date": "2025-10-01",
+  "report": "",
+  "pdf": "tc25-26.pdf"
+ },
+ {
+  "rosap_id": "93114",
+  "title": "Reproducing the Products of Flaming Combustion in the Microscale Combustion Calorimeter",
+  "date": "2025-08-01",
+  "report": "",
+  "pdf": "tc25-11.pdf"
+ },
+ {
+  "rosap_id": "82807",
+  "title": "Advanced Early Fire Detection in Aircraft Cargo with MACD And Passive UHF RFID Temperature Sensing While Maintaining False Alarm Resistance",
+  "date": "2025-04-01",
+  "report": "",
+  "pdf": "tctt25-15.pdf"
+ },
+ {
+  "rosap_id": "79580",
+  "title": "An Evaluation of Fire Containment Products for Inflight Fires Resulting from Portable Electronic Devices (PEDs)",
+  "date": "2024-12-01",
+  "report": "",
+  "pdf": "tc24-39.pdf"
+ },
+ {
+  "rosap_id": "82001",
+  "title": "Development of a Revised Test Method for Evaluating the Performance of Evacuation Slide Materials During Exposure to Radiant Heat",
+  "date": "2024-10-01",
+  "report": "",
+  "pdf": "tc24-33.pdf"
+ },
+ {
+  "rosap_id": "82000",
+  "title": "The Effect of Varying the Air Openings around the Sliding Platform in the Radiant Panel Insulation Test",
+  "date": "2024-10-01",
+  "report": "",
+  "pdf": "tc24-32.pdf"
+ },
+ {
+  "rosap_id": "78008",
+  "title": "An Evaluation of Parameters Pertinent to Dry Ice Sublimation",
+  "date": "2024-10-01",
+  "report": "",
+  "pdf": "tc24-24.pdf"
+ },
+ {
+  "rosap_id": "77600",
+  "title": "A State of Charge Analysis of 12 Lithium Ion Batteries (12.8 Volt) Previously Shipped on Aircraft",
+  "date": "2024-09-01",
+  "report": "",
+  "pdf": "tctn24-22.pdf"
+ },
+ {
+  "rosap_id": "76660",
+  "title": "Measuring the Fire Growth Potential of Combustible Solids Using a Cone Calorimeter [Report]",
+  "date": "2024-05-01",
+  "report": "DOT/FAA/TC-24/21",
+  "pdf": "AR2406_TC-INT-24_1.pdf"
+ },
+ {
+  "rosap_id": "74236",
+  "title": "Detection of Signatures from Internal Contaminant Sources Using Intelligent Algorithms",
+  "date": "2024-04-01",
+  "report": "",
+  "pdf": "tctt24-10.pdf"
+ },
+ {
+  "rosap_id": "74235",
+  "title": "Experimental Study of the Characteristics of a Hydrogen Flame from a Small Leak",
+  "date": "2024-04-01",
+  "report": "",
+  "pdf": "tctt24-9.pdf"
+ },
+ {
+  "rosap_id": "72825",
+  "title": "An Evaluation of the Flammability of 3D Printed Part Parameters Using the Vertical Bunsen Burner Test Method",
+  "date": "2023-12-01",
+  "report": "",
+  "pdf": "tctn23-65.pdf"
+ },
+ {
+  "rosap_id": "71887",
+  "title": "Lithium Battery Detecting Canine Demonstration",
+  "date": "2023-09-01",
+  "report": "",
+  "pdf": "tctn23-63.pdf"
+ },
+ {
+  "rosap_id": "68846",
+  "title": "Monitoring Smoke Emissions Using the Heat Release Rate Test Apparatus (HR2)",
+  "date": "2023-08-01",
+  "report": "",
+  "pdf": "tctn23-62.pdf"
+ },
+ {
+  "rosap_id": "68360",
+  "title": "Nitrous Oxide Enhanced Fires in an Aircraft Lower Deck (Ld-3) Sized Steel Test Chamber",
+  "date": "2023-07-01",
+  "report": "DOT/FAA/TCTN-23/51",
+  "pdf": "tctn23-51.pdf"
+ },
+ {
+  "rosap_id": "66985",
+  "title": "A State of Charge Analysis of Lithium-ion Cells Shipped via Air",
+  "date": "2023-03-01",
+  "report": "",
+  "pdf": "tctn23-34.pdf"
+ },
+ {
+  "rosap_id": "66039",
+  "title": "Methods of Collection and Analysis of Acid Gases in Fire Tests",
+  "date": "2022-12-01",
+  "report": "",
+  "pdf": "dot_66039_DS1.pdf"
+ },
+ {
+  "rosap_id": "65635",
+  "title": "Accounting for Baseline Drift in the Microscale Combustion Calorimeter",
+  "date": "2022-09-01",
+  "report": "",
+  "pdf": "tc22-31.pdf"
+ },
+ {
+  "rosap_id": "64764",
+  "title": "Evaluation of VERDAGENT® Against the FAA Minimum Performance Standard for Aircraft Cargo Compartment Halon Replacement Fire Suppression Systems",
+  "date": "2022-09-01",
+  "report": "",
+  "pdf": "tc22-5.pdf"
+ },
+ {
+  "rosap_id": "64094",
+  "title": "Effect of Active Cargo Containers on Aircraft Smoke Transport",
+  "date": "2022-08-01",
+  "report": "",
+  "pdf": "tctt22-30.pdf"
+ },
+ {
+  "rosap_id": "63271",
+  "title": "Microscale Flammability Criterion for Constituents of Aircraft Cabin Materials",
+  "date": "2022-08-01",
+  "report": "",
+  "pdf": "TC22-22.pdf"
+ },
+ {
+  "rosap_id": "64381",
+  "title": "An Analysis of State of Charge in Lithium-ion Batteries",
+  "date": "2022-07-01",
+  "report": "",
+  "pdf": "tctn22-27.pdf"
+ },
+ {
+  "rosap_id": "66669",
+  "title": "Evaluation of Lithium Battery Thermal Runaway Vent Gas Combustion",
+  "date": "2022-06-01",
+  "report": "",
+  "pdf": "tc22-12.pdf"
+ },
+ {
+  "rosap_id": "60114",
+  "title": "Evaluation of Lithium Battery Thermal Runaway Propagation",
+  "date": "2022-01-01",
+  "report": "DOT/FAA/TC-TN21/54",
+  "pdf": "tctn21-54.pdf"
+ },
+ {
+  "rosap_id": "60770",
+  "title": "A Digital Imaging Technique to Measure Temperatures and Soot Concentrations in Flames of Condensed Phase Fuels",
+  "date": "2021-12-01",
+  "report": "DOT/FAA/TC-21/50",
+  "pdf": "tc21-50.pdf"
+ },
+ {
+  "rosap_id": "57851",
+  "title": "A Study on Experimental Tests and Numerical Simulations of Boeing 747 Overhead Inaccessible-Area Fires",
+  "date": "2021-03-01",
+  "report": "DOT/FAA/TC-21/8",
+  "pdf": "tc21-8.pdf"
+ },
+ {
+  "rosap_id": "57849",
+  "title": "Fuel Tank Flammability Assessment Method User's Manual - Updated for Version 11",
+  "date": "2021-01-01",
+  "report": "DOT/FAA/TC-21/3",
+  "pdf": "tc21-3.pdf"
+ },
+ {
+  "rosap_id": "57831",
+  "title": "Microscale Fire Test for Component Substitutions in Aircraft Cabin Materials",
+  "date": "2020-09-01",
+  "report": "DOT/FAA/TC-20/30",
+  "pdf": "tc20-30.pdf"
+ },
+ {
+  "rosap_id": "57835",
+  "title": "A Physical Basis for Comparing Flammability of Aircraft Cabin Materials Using a Microscale Combustion Calorimeter",
+  "date": "2020-08-01",
+  "report": "DOT/FAA/TC-20/35",
+  "pdf": "tc20-35.pdf"
+ },
+ {
+  "rosap_id": "57824",
+  "title": "Thermal Runaway Initiation Methods for Lithium Batteries",
+  "date": "2019-07-01",
+  "report": "DOT/FAA/TC-20/12",
+  "pdf": "tc20-12.pdf"
+ },
+ {
+  "rosap_id": "57735",
+  "title": "Aircraft Materials Fire Test Handbook, Revision 3",
+  "date": "2019-07-01",
+  "report": "DOT/FAA/TC-17/55",
+  "pdf": "TC17-55.pdf"
+ },
+ {
+  "rosap_id": "57750",
+  "title": "Modeling of Hidden Fire in Aircraft Overhead Area",
+  "date": "2019-02-01",
+  "report": "DOT/FAA/TC-18/14",
+  "pdf": "TC-18-14.pdf"
+ },
+ {
+  "rosap_id": "57752",
+  "title": "Development of Nexgen Burner Operations Setting for Fire Testing of Power Plant Components",
+  "date": "2018-10-01",
+  "report": "DOT/FAA/TC-18/16",
+  "pdf": "TC-18-16.pdf"
+ },
+ {
+  "rosap_id": "57727",
+  "title": "A Test Protocol to Define Flammability and Toxic Hazard of Ceiling Impact Protective Material",
+  "date": "2018-03-01",
+  "report": "DOT/FAA/TC-17/46",
+  "pdf": "TC-17-46.pdf"
+ },
+ {
+  "rosap_id": "57703",
+  "title": "The Effects of Topcoat Color and Material Thickness on the Flammability Characteristics of Composite and Aluminum Wing Fuel Tanks",
+  "date": "2017-12-01",
+  "report": "DOT/FAA/TC-17/12",
+  "pdf": "TC-17-12.pdf"
+ },
+ {
+  "rosap_id": "57723",
+  "title": "Cargo Fire Suppression by Depressurization",
+  "date": "2017-11-01",
+  "report": "DOT/FAA/TC-17/39",
+  "pdf": "TC-17-39.pdf"
+ },
+ {
+  "rosap_id": "57710",
+  "title": "Flammability of Materials in a Low-Concentration Hydrogen Environment",
+  "date": "2017-09-01",
+  "report": "DOT/FAA/TC-17/23",
+  "pdf": "TC-17-23.pdf"
+ },
+ {
+  "rosap_id": "57691",
+  "title": "A Comparison of the Performance of OSU-Compliant versus Non-OSU-Compliant Thermoplastics Used in the Lower Area of Aircraft Seats during a Simulated Post-crash Fire Scenario",
+  "date": "2017-09-01",
+  "report": "DOT/FAA/TC-16/42",
+  "pdf": "TC-16-42.pdf"
+ },
+ {
+  "rosap_id": "57868",
+  "title": "Accuracy of the Heat Release Rate Measured in Microscale Combustion Calorimetry",
+  "date": "2017-07-01",
+  "report": "DOT/FAA/TC-TN17/45",
+  "author": "Haiqing Guo; Richard E. Lyon; Natallia Safronava",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "57694",
+  "title": "Research into Fire, Smoke or Fumes Occurrences on Transport Airplanes",
+  "date": "2017-03-01",
+  "report": "DOT/FAA/TC-16/49",
+  "author": "R.G.W. Cherry & Associates Limited",
+  "abstract": "Collects and analyzes in-service fire, smoke or fumes occurrences on US-registered aircraft from 2002 to 2011, comparing genuine and false occurrences by source and consequence and estimating monetary impact."
+ },
+ {
+  "rosap_id": "57671",
+  "title": "Fire Hazard Analysis for Various Lithium Batteries",
+  "date": "2017-03-01",
+  "report": "DOT/FAA/TC-16/17",
+  "author": "Steven Summer; Thomas Maloney",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "57859",
+  "title": "Impact of Lithium Battery Vent Gas Ignition on Cargo Compartment Fire Protection",
+  "date": "2016-11-01",
+  "report": "DOT/FAA/TC-TN16/34",
+  "pdf": "TC-TN-16-34.pdf"
+ },
+ {
+  "rosap_id": "57657",
+  "title": "Lithium Battery Thermal Runaway Vent Gas Analysis",
+  "date": "2016-11-01",
+  "report": "DOT/FAA/TC-15/59",
+  "pdf": "TC-15-59.pdf"
+ },
+ {
+  "rosap_id": "57678",
+  "title": "Abusive Testing of Proton Exchange Membrane Hydrogen Fuel Cells",
+  "date": "2016-10-01",
+  "report": "DOT/FAA/TC-16/24",
+  "pdf": "TC-16-24.pdf"
+ },
+ {
+  "rosap_id": "57651",
+  "title": "Impact of Altitude on Vertical Bunsen Burner Testing",
+  "date": "2016-09-01",
+  "report": "DOT/FAA/TC-15/48",
+  "pdf": "TC-15-48.pdf"
+ },
+ {
+  "rosap_id": "57686",
+  "title": "Summary of FAA Studies Related to the Hazards Produced by Lithium Cells in Thermal Runaway in Aircraft Cargo Compartments",
+  "date": "2016-06-01",
+  "report": "DOT/FAA/TC-16/37",
+  "pdf": "TC-16-37.pdf"
+ },
+ {
+  "rosap_id": "57858",
+  "title": "Energy Release by Rechargeable Lithium-Ion Batteries in Thermal Runaway",
+  "date": "2016-04-01",
+  "report": "DOT/FAA/TC-TN16/22",
+  "pdf": "TC-TN16-22.pdf"
+ },
+ {
+  "rosap_id": "57857",
+  "title": "Thermal Dynamics of Bomb Calorimeters",
+  "date": "2016-04-01",
+  "report": "DOT/FAA/TC-TN16/16",
+  "pdf": "TC-TN16-16.pdf"
+ },
+ {
+  "rosap_id": "57853",
+  "title": "Effect of Airflow and Measurement Method on the Heat Release Rate of Aircraft Cabin Materials I the Ohio State University Apparatus",
+  "date": "2016-04-01",
+  "report": "DOT/FAA/TC-TN15/34",
+  "pdf": "TC-TN15-34.pdf"
+ },
+ {
+  "rosap_id": "57644",
+  "title": "Measuring Energy Release of Lithium-Ion Battery Failure Using a Bomb Calorimeter",
+  "date": "2016-03-01",
+  "report": "DOT/FAA/TC-15/40",
+  "pdf": "TC-15-40.pdf"
+ },
+ {
+  "rosap_id": "57641",
+  "title": "Passive Protection of Lithium Battery Shipments",
+  "date": "2016-02-01",
+  "report": "DOT/FAA/TC-15/38",
+  "pdf": "TC-15-38.pdf"
+ },
+ {
+  "rosap_id": "92713",
+  "title": "Review and Assessment of Transport Category Airplane Ditching Standards and Requirements",
+  "date": "2015-05-01",
+  "report": "DOT/FAA/TC-14/8",
+  "pdf": "TC-14-8.pdf"
+ },
+ {
+  "rosap_id": "29058",
+  "title": "Fire Behavior of E-Tablets Stored in Aircraft Galley Carts",
+  "date": "2015-04-01",
+  "report": "DOT/FAA/TC-TN14/40",
+  "pdf": "TC-TN-14-40.pdf"
+ },
+ {
+  "rosap_id": "90089",
+  "title": "An Investigation of the Vertical Bunsen Burner Test for Flammability of Plastics",
+  "date": "2012-02-01",
+  "report": "DOT/FAA/AR-TN11/19",
+  "pdf": "TN11-19.pdf"
+ },
+ {
+  "rosap_id": "90088",
+  "title": "Intermixing Cells in an Aircraft Nickel-Cadmium Battery",
+  "date": "2011-11-01",
+  "report": "DOT/FAA/AR-TN11/16",
+  "pdf": "TN11-16.pdf"
+ },
+ {
+  "rosap_id": "89989",
+  "title": "Improvements in Aircraft Fire Safety Derived From FAA Research Over the Last Decade",
+  "date": "2011-05-01",
+  "report": "DOT/FAA/AR-TN11/8",
+  "pdf": "TN11-8.pdf"
+ },
+ {
+  "rosap_id": "90255",
+  "title": "Graphite Oxide Flame Retardants",
+  "date": "2010-03-01",
+  "report": "DOT/FAA/AR-TN09/60",
+  "pdf": "TN09-60.pdf"
+ },
+ {
+  "rosap_id": "90254",
+  "title": "Prediction of the Burning Rates of Charring Polymers",
+  "date": "2010-03-01",
+  "report": "DOT/FAA/AR-TN09/59",
+  "pdf": "TN09-59.pdf"
+ },
+ {
+  "rosap_id": "90250",
+  "title": "Flammability of In-Service Aircraft Thermal Acoustic Insulation Blankets",
+  "date": "2010-02-01",
+  "report": "DOT/FAA/AR-TN09/43",
+  "pdf": "TN09-43.pdf"
+ },
+ {
+  "rosap_id": "90292",
+  "title": "Modeling Wing Tank Flammability",
+  "date": "2009-10-01",
+  "report": "DOT/FAA/AR-TT09/48",
+  "pdf": "TT09-48.pdf"
+ },
+ {
+  "rosap_id": "90259",
+  "title": "Vaporization of JP-8 Jet Fuel in a Simulated Aircraft Fuel Tank Under Varying Ambient Conditions",
+  "date": "2009-08-01",
+  "report": "DOT/FAA/AR-TT09/42",
+  "pdf": "TT09-42.pdf"
+ },
+ {
+  "rosap_id": "90234",
+  "title": "Predicting the Burning Rates of Noncharring Polymers",
+  "date": "2009-07-01",
+  "report": "DOT/FAA/AR-TN09/16",
+  "pdf": "tn09-16.pdf"
+ },
+ {
+  "rosap_id": "90235",
+  "title": "Development of a Next-Generation Burner for Use in Testing Thermal Acoustic Insulation Burnthrough Resistance",
+  "date": "2009-05-01",
+  "report": "DOT/FAA/AR-TN09/23",
+  "pdf": "TN09-23.pdf"
+ },
+ {
+  "rosap_id": "90233",
+  "title": "Prevention of a Simulated Aerosol Can Explosion with a Mixture of Halon 1301 and Nitrogen",
+  "date": "2008-11-01",
+  "report": "DOT/FAA/AR-TN08/49",
+  "pdf": "TN08-49.pdf"
+ },
+ {
+  "rosap_id": "90169",
+  "title": "Development of a Laboratory-Scale Test for Evaluating the Decomposition Products Generated Inside an Intact Fuselage During a Simulated Postcrash Fuel Fire",
+  "date": "2008-08-01",
+  "report": "DOT/FAA/AR-TN07/15",
+  "pdf": "TN07-15.pdf"
+ },
+ {
+  "rosap_id": "90226",
+  "title": "Thermo-Kinetic Model of Burning",
+  "date": "2008-05-01",
+  "report": "DOT/FAA/AR-TN08/17",
+  "pdf": "TN08-17.pdf"
+ },
+ {
+  "rosap_id": "92484",
+  "title": "Nonhalogen Fire-Resistant Plastics for Aircraft Interiors",
+  "date": "2008-01-01",
+  "report": "DOT/FAA/AR-TN08/5",
+  "pdf": "TN08-5.pdf"
+ },
+ {
+  "rosap_id": "90096",
+  "title": "Flammability Characteristics of TKS Anti-Icing Fluid",
+  "date": "2008-01-01",
+  "report": "DOT/FAA/AR-TN08/9",
+  "pdf": "TN08-9.pdf"
+ },
+ {
+  "rosap_id": "90215",
+  "title": "Determination of the Heats of Gasification of Polymers Using Differential Scanning Calorimetry",
+  "date": "2007-11-01",
+  "report": "DOT/FAA/AR-TN07/62",
+  "pdf": "TN07-62.pdf"
+ },
+ {
+  "rosap_id": "90122",
+  "title": "A Preliminary Examination of the Effectiveness of Hand-Held Extinguishers Against Hidden Fires in the Cabin Overhead Area of Narrow-Body and Wide-Body Transport Aircraft",
+  "date": "2007-07-01",
+  "report": "DOT/FAA/AR-TN04/33",
+  "pdf": "TN04-33.pdf"
+ },
+ {
+  "rosap_id": "90127",
+  "title": "Evaluation of the Reproducibility of the FAA Oil Burner Fire Test for Aircraft Seat Cushions",
+  "date": "2007-03-01",
+  "report": "DOT/FAA/AR-TN06/55",
+  "pdf": "TN06-55.pdf"
+ },
+ {
+  "rosap_id": "94271",
+  "title": "Determination of Fuel/Air Mass Ratios for Jet Fuels at Their Flash Point Temperatures",
+  "date": "2006-09-01",
+  "report": "DOT/FAA/AR-02/96",
+  "author": "James E. Woodrow",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "89945",
+  "title": "The Fire Safety Hazard of the Use of Flameless Ration Heaters Onboard Commercial Aircraft",
+  "date": "2006-06-01",
+  "report": "DOT/FAA/AR-TN06/18",
+  "pdf": "TN06-18.pdf"
+ },
+ {
+  "rosap_id": "89909",
+  "title": "Intrinsically Safe Current Limit Study for Aircraft Fuel Tank Electronics",
+  "date": "2005-10-01",
+  "report": "DOT/FAA/AR-TN05/37",
+  "pdf": "TN05-37.pdf"
+ },
+ {
+  "rosap_id": "89908",
+  "title": "Evaluation of the 12-Second Vertical Bunsen Burner Test Used to Determine the Fireworthiness of Aircraft Duct Materials",
+  "date": "2005-10-01",
+  "report": "DOT/FAA/AR-TN05/36",
+  "pdf": "tn05-36.pdf"
+ },
+ {
+  "rosap_id": "16407",
+  "title": "Polymer Flammability",
+  "date": "2005-05-01",
+  "report": "DOT/FAA/AR-05/14",
+  "pdf": "05-14.pdf"
+ },
+ {
+  "rosap_id": "89897",
+  "title": "Heat Release Rate of Objects Burning in Cargo Compartments",
+  "date": "2005-04-01",
+  "report": "DOT/FAA/AR-TN05/9",
+  "pdf": "TN05-9.pdf"
+ },
+ {
+  "rosap_id": "89894",
+  "title": "An Evaluation of the Flammability of Aircraft Wiring",
+  "date": "2004-12-01",
+  "report": "DOT/FAA/AR-TN04/32",
+  "pdf": "TN04-32.pdf"
+ },
+ {
+  "rosap_id": "89881",
+  "title": "MIL-W-22759 Vertical Flammability Test Versus the 60 Degree Flammability Test",
+  "date": "2004-06-01",
+  "report": "DOT/FAA/AR-TN04/21",
+  "pdf": "TN04-21.pdf"
+ },
+ {
+  "rosap_id": "71623",
+  "title": "Flammability Assessment of Bulk-Packed, Nonrechargeable Lithium Primary Batteries in Transport Category Aircraft Final Report",
+  "date": "2004-06-01",
+  "report": "DOT/FAA/AR-04/26",
+  "pdf": "04-26.pdf"
+ },
+ {
+  "rosap_id": "89861",
+  "title": "Behavior of Bromotrifluoropropene and Pentafluoroethane When Subjected to a Simulated Aerosol Can Explosion",
+  "date": "2004-05-01",
+  "report": "DOT/FAA/AR-TN04/4",
+  "pdf": "TN04-4.pdf"
+ },
+ {
+  "rosap_id": "89835",
+  "title": "Limiting Oxygen Concentration Required to Inert Jet Fuel Vapors Existing at Reduced Fuel Tank Pressures",
+  "date": "2003-08-01",
+  "report": "DOT/FAA/AR-TN02/79",
+  "pdf": "TN02-79.pdf"
+ },
+ {
+  "rosap_id": "89854",
+  "title": "A Description and Analysis of the FAA Onboard Oxygen Analysis System",
+  "date": "2003-07-01",
+  "report": "DOT/FAA/AR-TN03/52",
+  "pdf": "TN03-52.pdf"
+ },
+ {
+  "rosap_id": "89853",
+  "title": "Ground Tests of Aircraft Flight Deck Smoke Penetration Resistance",
+  "date": "2003-04-01",
+  "report": "DOT/FAA/AR-TN03/36",
+  "pdf": "TN03-36.pdf"
+ },
+ {
+  "rosap_id": "89838",
+  "title": "Minimum Performance Standard for Aircraft Cargo Compartment Halon Replacement Fire Suppression Systems",
+  "date": "2003-04-01",
+  "report": "DOT/FAA/AR-TN03/6",
+  "author": "John W. Reinhardt",
+  "abstract": "Original 2003 edition of the Minimum Performance Standard; the archive holds the 2005 second update (DOT/FAA/AR-TN05/20)."
+ },
+ {
+  "rosap_id": "16408",
+  "title": "The Response of Aircraft Oxygen Generators Exposed to Elevated Temperatures",
+  "date": "2003-04-01",
+  "report": "DOT/FAA/AR-TN03/35",
+  "pdf": "TN03-35.pdf"
+ },
+ {
+  "rosap_id": "89836",
+  "title": "The Correlation of Heat Release Calorimetry Measurements",
+  "date": "2002-11-01",
+  "report": "DOT/FAA/AR-TN02/104",
+  "pdf": "AR-TN02-104.pdf"
+ },
+ {
+  "rosap_id": "94236",
+  "title": "A Benefit Analysis for Enhanced Protection from Fires in Hidden Areas on Transport Aircraft",
+  "date": "2002-09-06",
+  "report": "DOT/FAA/AR-02/50",
+  "pdf": "capap200201.pdf"
+ },
+ {
+  "rosap_id": "16409",
+  "title": "Burning Behavior Within a Seat Armrest Cavity",
+  "date": "2002-09-01",
+  "report": "DOT/FAA/AR-TN02/105",
+  "pdf": "AR-TN02-105.pdf"
+ },
+ {
+  "rosap_id": "16410",
+  "title": "Development of a Minimum Performance Standard for Hand-Held Fire Extinguishers as a Replacement for Halon 1211 on Civilian Transport Category Aircraft",
+  "date": "2002-08-01",
+  "report": "DOT/FAA/AR-01/37",
+  "pdf": "01-37.pdf"
+ },
+ {
+  "rosap_id": "94177",
+  "title": "Combustibility of Cyanate Ester Resins",
+  "date": "2002-06-01",
+  "report": "DOT/FAA/AR-02/44",
+  "pdf": "02-44.pdf"
+ },
+ {
+  "rosap_id": "94238",
+  "title": "Fire-Resistant Cyanate Ester-Epoxy Blends",
+  "date": "2002-05-01",
+  "report": "DOT/FAA/AR-02/53",
+  "pdf": "02-53.pdf"
+ },
+ {
+  "rosap_id": "89805",
+  "title": "Fire-Resistant Elastomers",
+  "date": "2002-05-01",
+  "report": "DOT/FAA/AR-TN01/104",
+  "pdf": "TN-01-104.pdf"
+ },
+ {
+  "rosap_id": "94147",
+  "title": "A Study of Transport Airplane Crash-Resistant Fuel Systems",
+  "date": "2002-03-01",
+  "report": "DOT/FAA/AR-01/82",
+  "author": "S. H. Robertson; N. B. Johnson; D. S. Hall; I. J. Rimson",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "94146",
+  "title": "A Study of Helicopter Crash-Resistant Fuel Systems",
+  "date": "2002-02-01",
+  "report": "DOT/FAA/AR-01/76",
+  "author": "S. H. Robertson; N. B. Johnson; D. S. Hall; I. J. Rimson",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "92726",
+  "title": "A Microscale Combustion Calorimeter",
+  "date": "2002-02-01",
+  "report": "DOT/FAA/AR-01/117",
+  "pdf": "01-117.pdf"
+ },
+ {
+  "rosap_id": "41765",
+  "title": "Evaluation of Water Mist With and Without Nitrogen as an Aircraft Cargo Compartment Fire Suppression System",
+  "date": "2002-02-01",
+  "report": "DOT/FAA/AR-01/121",
+  "pdf": "01-121.pdf"
+ },
+ {
+  "rosap_id": "89802",
+  "title": "Heat Release and Flammability Testing of Surrogate Panels",
+  "date": "2001-12-01",
+  "report": "DOT/FAA/AR-TN01/112",
+  "pdf": "01-112.pdf"
+ },
+ {
+  "rosap_id": "40826",
+  "title": "Development and Performance of an Adiabatic Expansion Nozzle for Improved Fire Extinguishers",
+  "date": "2001-12-01",
+  "report": "DOT/FAA/AR-TN01/60",
+  "pdf": "01-60.pdf"
+ },
+ {
+  "rosap_id": "89800",
+  "title": "Flammability of Automotive Child Restraint Seats for Use in Aircraft",
+  "date": "2001-11-01",
+  "report": "DOT/FAA/AR-TN01/42",
+  "pdf": "01-42.pdf"
+ },
+ {
+  "rosap_id": "92720",
+  "title": "Fourier Transform Infrared Analysis of Combustion Gases",
+  "date": "2001-10-01",
+  "report": "DOT/FAA/AR-01/88",
+  "pdf": "01-88.pdf"
+ },
+ {
+  "rosap_id": "92724",
+  "title": "Calculating Polymer Flammability from Molar Group Contributions",
+  "date": "2001-09-01",
+  "report": "DOT/FAA/AR-01/31",
+  "pdf": "01-31.pdf"
+ },
+ {
+  "rosap_id": "89803",
+  "title": "Molar Group Contributions to the Heat of Combustion",
+  "date": "2001-09-01",
+  "report": "DOT/FAA/AR-TN01/75",
+  "pdf": "01-75.pdf"
+ },
+ {
+  "rosap_id": "15466",
+  "title": "Thermal Decomposition of Cyanate Ester Resins",
+  "date": "2001-09-01",
+  "report": "DOT/FAA/AR-01/32",
+  "pdf": "01-32.pdf"
+ },
+ {
+  "rosap_id": "92725",
+  "title": "Ground and Flight Testing of a Boeing 737 Center Wing Fuel Tank Inerted with Nitrogen-Enriched Air",
+  "date": "2001-08-01",
+  "report": "DOT/FAA/AR-01/63",
+  "pdf": "01-63.pdf"
+ },
+ {
+  "rosap_id": "92723",
+  "title": "Fire-Resistant Epoxy",
+  "date": "2001-08-01",
+  "report": "DOT/FAA/AR-01/53",
+  "pdf": "01-53.pdf"
+ },
+ {
+  "rosap_id": "89773",
+  "title": "Water Spray as a Fire Suppression Agent for Aircraft Cargo Compartment Fires",
+  "date": "2001-06-01",
+  "report": "DOT/FAA/AR-TN01/1",
+  "pdf": "tn01-1.pdf"
+ },
+ {
+  "rosap_id": "93875",
+  "title": "Thermal Decomposition Mechanism of 2,2-Bis-(4-Hydroxy-phenyl)-1,1-Dichloroethylene-Based Polymers",
+  "date": "2001-02-01",
+  "report": "DOT/FAA/AR-00/42",
+  "pdf": "ar00-42.pdf"
+ },
+ {
+  "rosap_id": "93974",
+  "title": "Rescue and Firefighting Research Program",
+  "date": "2001-01-01",
+  "report": "DOT/FAA/AR-00/67",
+  "author": "J. Wright",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "93798",
+  "title": "Development of Improved Flammability Criteria for Aircraft Thermal Acoustic Insulation",
+  "date": "2000-09-01",
+  "report": "DOT/FAA/AR-99/44",
+  "pdf": "99-44.pdf"
+ },
+ {
+  "rosap_id": "92722",
+  "title": "Synthesis and Characterization of Chlorinated Bisphenol-Based Polymers and Polycarbodiimides as Inherently Fire-Safe Polymers",
+  "date": "2000-08-01",
+  "report": "DOT/FAA/AR-00/39",
+  "pdf": "ar00-39.pdf"
+ },
+ {
+  "rosap_id": "90173",
+  "title": "Cold Ambient Temperature Effects on Heated Fuel Tank Vapor Concentrations",
+  "date": "2000-07-01",
+  "report": "DOT/FAA/AR-TN99/93",
+  "pdf": "TN99-93.pdf"
+ },
+ {
+  "rosap_id": "55989",
+  "title": "Aircraft Cargo Compartment Smoke Detector Alarm Incidents on U.S.-Registered Aircraft, 1974-1999",
+  "date": "2000-06-01",
+  "report": "DOT/FAA/AR-TN00/29",
+  "pdf": "tn00-29.pdf"
+ },
+ {
+  "rosap_id": "89732",
+  "title": "Flammability of Aircraft Insulation Blankets Subjected to Electrical Arc Ignition Sources",
+  "date": "2000-04-01",
+  "report": "DOT/FAA/AR-TN00/20",
+  "pdf": "tn00-20.pdf"
+ },
+ {
+  "rosap_id": "40103",
+  "title": "Aircraft Materials Fire Test Handbook",
+  "date": "2000-04-01",
+  "report": "DOT/FAA/AR-00/12",
+  "pdf": "00-12.pdf"
+ },
+ {
+  "rosap_id": "40102",
+  "title": "Benefit Analysis for Aircraft 16-g Dynamic Seats",
+  "date": "2000-04-01",
+  "report": "DOT/FAA/AR-00/13",
+  "pdf": "00-13.pdf"
+ },
+ {
+  "rosap_id": "92721",
+  "title": "A Benefit Analysis for Nitrogen Inerting of Aircraft Fuel Tanks against Ground Fire Explosion",
+  "date": "1999-12-01",
+  "report": "DOT/FAA/AR-99/73",
+  "pdf": "99-73.pdf"
+ },
+ {
+  "rosap_id": "90172",
+  "title": "Mass Loading Effects on Fuel Vapor Concentrations in an Aircraft Fuel Tank Ullage",
+  "date": "1999-09-01",
+  "report": "DOT/FAA/AR-TN99/65",
+  "pdf": "tn99-65.pdf"
+ },
+ {
+  "rosap_id": "90181",
+  "title": "Simulating the Distribution of Halon 1301 in an Aircraft Engine Nacelle with HFC-125",
+  "date": "1999-08-01",
+  "report": "DOT/FAA/AR-TN99/64",
+  "pdf": "tn99-64.pdf"
+ },
+ {
+  "rosap_id": "92730",
+  "title": "Solid-State Thermochemistry of Flaming Combustion",
+  "date": "1999-07-01",
+  "report": "DOT/FAA/AR-99/56",
+  "pdf": "ar99-56.pdf"
+ },
+ {
+  "rosap_id": "90180",
+  "title": "Evaluation of Oxygen Cylinder Overpacks Exposed to Elevated Temperature",
+  "date": "1999-06-01",
+  "report": "DOT/FAA/AR-TN98/30",
+  "pdf": "tn98-30.pdf"
+ },
+ {
+  "rosap_id": "90177",
+  "title": "Activation of Oxygen Generators in Proximity to Combustible Materials",
+  "date": "1999-05-01",
+  "report": "DOT/FAA/AR-TN99/9",
+  "pdf": "tn99-9.pdf"
+ },
+ {
+  "rosap_id": "90113",
+  "title": "Oxygen Enhanced Fires in LD-3 Cargo Containers",
+  "date": "1999-05-01",
+  "report": "DOT/FAA/AR-TN98/29",
+  "pdf": "tn98-29.pdf"
+ },
+ {
+  "rosap_id": "90179",
+  "title": "Effectiveness of Flight Attendants Attempting to Extinguish Fires in an Accessible Cargo Compartment",
+  "date": "1999-04-01",
+  "report": "DOT/FAA/AR-TN99/29",
+  "pdf": "artn99-29.pdf"
+ },
+ {
+  "rosap_id": "92729",
+  "title": "Full-Scale Test Evaluation of Aircraft Fuel Fire Burnthrough Resistance Improvements",
+  "date": "1999-01-01",
+  "report": "DOT/FAA/AR-98/52",
+  "pdf": "98-52.pdf"
+ },
+ {
+  "rosap_id": "62391",
+  "title": "Cargo Compartment Fire Protection in Large Commercial Transport Aircraft",
+  "date": "1998-07-01",
+  "report": "DOT/FAA/AR-TN98/32",
+  "pdf": "artn98-32.pdf"
+ },
+ {
+  "rosap_id": "13250",
+  "title": "A Review of the Flammability Hazard of Jet A Fuel Vapor in Civil Transport Aircraft Fuels Tanks",
+  "date": "1998-06-01",
+  "report": "",
+  "pdf": "ar98-26.pdf"
+ },
+ {
+  "rosap_id": "92727",
+  "title": "Vertical Drop Test of a Beechcraft 1900C Airliner",
+  "date": "1998-05-01",
+  "report": "DOT/FAA/AR-96/119",
+  "pdf": "ar96-119.pdf"
+ },
+ {
+  "rosap_id": "13259",
+  "title": "Acoustic Emission Test for Aircraft Halon 1301 Fire Extinguisher Bottles",
+  "date": "1998-04-01",
+  "report": "",
+  "pdf": "ar97-9.pdf"
+ },
+ {
+  "rosap_id": "13252",
+  "title": "Initial Development of an Exploding Aerosol Can Simulator",
+  "date": "1998-04-01",
+  "report": "",
+  "pdf": "artn97-103.pdf"
+ },
+ {
+  "rosap_id": "13251",
+  "title": "Fire Testing of Ethanol-Based Hand Cleaner",
+  "date": "1998-04-01",
+  "report": "",
+  "pdf": "artn98-15.pdf"
+ },
+ {
+  "rosap_id": "13256",
+  "title": "Evaluation of Fire Test Methods for Aircraft Thermal Acoustical Insulation",
+  "date": "1997-09-01",
+  "report": "",
+  "pdf": "ar97-58.pdf"
+ },
+ {
+  "rosap_id": "13264",
+  "title": "Development of a Minimum Performance Standard for Lavatory Trash Receptacle Automatic Fire Extinguishers",
+  "date": "1997-02-01",
+  "report": "",
+  "pdf": "ar96-122.pdf"
+ },
+ {
+  "rosap_id": "92728",
+  "title": "Fuel Fire Penetration Test and Destruction of a Transport Aircraft",
+  "date": "1996-12-01",
+  "report": "DOT/FAA/AR-96/48",
+  "pdf": "ar96-48.pdf"
+ },
+ {
+  "rosap_id": "13253",
+  "title": "Fire-Resistant Materials: Research Overview",
+  "date": "1996-12-01",
+  "report": "",
+  "pdf": "ar97-99.pdf"
+ },
+ {
+  "rosap_id": "90098",
+  "title": "Aircraft Cabin Smoke Control with Converging-Diverging Nozzles",
+  "date": "1996-04-01",
+  "report": "DOT/FAA/AR-TN96/37",
+  "author": "Thor I. Eklund",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "89807",
+  "title": "Continued Fireworthiness of Aircraft Interior Materials",
+  "date": "1996-04-01",
+  "report": "DOT/FAA/AR-TN96/25",
+  "pdf": "tn96-25.pdf"
+ },
+ {
+  "rosap_id": "13266",
+  "title": "The Development of a Flammability Test Method for Aircraft Blankets",
+  "date": "1996-03-01",
+  "report": "",
+  "pdf": "ar96-15.pdf"
+ },
+ {
+  "rosap_id": "89549",
+  "title": "Chemical Analysis of Pump Motor Housing Components From DC-9 Ramp Fire at Barranquilla Columbia in March 1995",
+  "date": "1996-02-01",
+  "report": "",
+  "pdf": "tn95-92.pdf"
+ },
+ {
+  "rosap_id": "89546",
+  "title": "International Aircraft Materials Fire Test Working Group Material Systems Renovation and Repair Subgroup",
+  "date": "1996-02-01",
+  "report": "",
+  "pdf": "tn95-83.pdf"
+ },
+ {
+  "rosap_id": "89534",
+  "title": "Fire Response of Geopolymer Structural Composites",
+  "date": "1996-01-01",
+  "report": "DOT/FAA AR-TN95/22",
+  "pdf": "tn95-22.pdf"
+ },
+ {
+  "rosap_id": "89533",
+  "title": "Performance of Improved Aerosol Cans Subjected to an Aircraft Fire",
+  "date": "1995-12-01",
+  "report": "DOT/FAA AR-TN95/78",
+  "pdf": "tn95-78.pdf"
+ },
+ {
+  "rosap_id": "16390",
+  "title": "The Role of Research and Development on Safety Regulation",
+  "date": "1995-10-01",
+  "report": "DOT/FAA/AR-95/84",
+  "pdf": "ar95-84.pdf"
+ },
+ {
+  "rosap_id": "93711",
+  "title": "Toxicity Assessment of Combustion Gases and Development of a Survival Model",
+  "date": "1995-07-01",
+  "report": "DOT/FAA/AR-95/5",
+  "pdf": "95-5.pdf"
+ },
+ {
+  "rosap_id": "21459",
+  "title": "The Potential for Pulmonary Heat Injury Resulting from the Activation of a Cabin Water Spray System to Fight Aircraft Cabin Fires",
+  "date": "1995-05-01",
+  "report": "DOT/FAA/AM-95/17",
+  "pdf": "am94-x.pdf"
+ },
+ {
+  "rosap_id": "93590",
+  "title": "Corrosion of Fire-Damaged Aircraft",
+  "date": "1995-04-01",
+  "report": "DOT/FAA/CT-94/89",
+  "author": "William T. Westfield",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "93712",
+  "title": "Chemical Options to Halons for Aircraft Use",
+  "date": "1995-02-01",
+  "report": "DOT/FAA/CT-95/9",
+  "pdf": "ct95-9.pdf"
+ },
+ {
+  "rosap_id": "93574",
+  "title": "Aircraft Fuel System Lightning Protection Design and Qualification Test Procedures Development",
+  "date": "1994-09-01",
+  "report": "DOT/FAA/CT-94/74",
+  "pdf": "ct94-74.pdf"
+ },
+ {
+  "rosap_id": "93467",
+  "title": "Analysis of Test Criteria for Specifying Foam Firefighting Agents for Aircraft Rescue and Firefighting",
+  "date": "1994-08-01",
+  "report": "DOT/FAA/CT-94/04",
+  "pdf": "ct94-04.pdf"
+ },
+ {
+  "rosap_id": "93443",
+  "title": "Gas Turbine Prediffuser-Combustor Performance During Operation with Air-Water Mixture",
+  "date": "1994-08-01",
+  "report": "DOT/FAA/CT-93/52",
+  "pdf": "ct93-52.pdf"
+ },
+ {
+  "rosap_id": "93177",
+  "title": "Fuselage Burnthrough From Large Exterior Fuel Fires",
+  "date": "1994-07-01",
+  "report": "DOT/FAA/CT-90-10",
+  "pdf": "ct90-10.pdf"
+ },
+ {
+  "rosap_id": "93307",
+  "title": "Aircraft Cabin Water Spray Disbenefits Study",
+  "date": "1993-10-01",
+  "report": "DOT/FAA/CT-92/6",
+  "pdf": "ct92-6.pdf"
+ },
+ {
+  "rosap_id": "93401",
+  "title": "Handbook - Volume III, Digital Systems Validation Book Plan",
+  "date": "1993-07-01",
+  "report": "DOT/FAA/CT-93/16",
+  "pdf": "ct93-16.pdf"
+ },
+ {
+  "rosap_id": "93396",
+  "title": "International Conference for the Promotion of Advanced Fire Resistant Aircraft Interior Materials",
+  "date": "1993-03-01",
+  "report": "DOT/FAA/CT-93/3",
+  "pdf": "ct93-3.pdf"
+ },
+ {
+  "rosap_id": "93087",
+  "title": "Ventilation Effects on Smoke and Temperature in an Aircraft Cabin Quarter-Scale Model",
+  "date": "1993-03-01",
+  "report": "DOT/FAA/CT-89/25",
+  "pdf": "ct89-25.pdf"
+ },
+ {
+  "rosap_id": "93302",
+  "title": "Modeling the Heat Release Rate of Aircraft Cabin Panels",
+  "date": "1993-02-01",
+  "report": "DOT/FAA/CT-92/3",
+  "pdf": "ct92-3.pdf"
+ },
+ {
+  "rosap_id": "93200",
+  "title": "A Model Study of the Aircraft Cabin Environment Resulting From In-Flight Fires",
+  "date": "1992-11-01",
+  "report": "DOT/FAA/CT-90/22",
+  "pdf": "ct90-22.pdf"
+ },
+ {
+  "rosap_id": "93199",
+  "title": "Aircraft Command in Emergency Situations (ACES) Phase 1: Concept Development",
+  "date": "1991-04-01",
+  "report": "DOT/FANCT-90/21",
+  "pdf": "ct90-21.pdf"
+ },
+ {
+  "rosap_id": "93220",
+  "title": "Development and Growth of Inaccessible Aircraft Fires under Inflight Airflow Conditions",
+  "date": "1991-02-01",
+  "report": "DOT/FAA/CT-91/2",
+  "pdf": "ct91-2.pdf"
+ },
+ {
+  "rosap_id": "93095",
+  "title": "Smoke and Extinguisher Agent Dissipation in a Small Pressurized Fuselage",
+  "date": "1990-11-01",
+  "report": "DOT/FAA/CT-89/31",
+  "pdf": "ct89-31.pdf"
+ },
+ {
+  "rosap_id": "93173",
+  "title": "Generation of Buoyant Plume of Artificial Smoke for Airplane Tests",
+  "date": "1990-09-01",
+  "report": "DOT/FAA/CT-90/9",
+  "author": "Thor I. Eklund",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "93061",
+  "title": "Aircraft Material Fire Test Handbook",
+  "date": "1990-09-01",
+  "report": "DOT/FAA/CT-89/15",
+  "pdf": "ct89-15.pdf"
+ },
+ {
+  "rosap_id": "93088",
+  "title": "Calibration Technique for Heat Flux Sensors Used in Fire Experiments and Standard Fire Tests",
+  "date": "1990-04-01",
+  "report": "DOT/FAA/CT-89/26",
+  "pdf": "ct89-26.pdf"
+ },
+ {
+  "rosap_id": "93096",
+  "title": "Fire Hazards of Aerosol Cans in Aircraft Cargo Compartments",
+  "date": "1989-12-01",
+  "report": "DOT/FAA/CT-89/32",
+  "pdf": "ct89-32.pdf"
+ },
+ {
+  "rosap_id": "93073",
+  "title": "Flammability, Smoke and Dry Arc Tracking Tests of Aircraft Electrical Wire Insulations",
+  "date": "1989-07-01",
+  "report": "DOT/FAA/CT-89/21",
+  "pdf": "CT89-21.pdf"
+ },
+ {
+  "rosap_id": "93055",
+  "title": "Airplane Tests of Enhanced Emergency Smoke Venting (Supplemental Data)",
+  "date": "1989-03-01",
+  "report": "DOT/FAA/CT-89/9-A",
+  "author": "Elliott L. Maylor",
+  "abstract": "Supplemental data volume to DOT/FAA/CT-89/9, Airplane Tests of Enhanced Emergency Smoke Venting."
+ },
+ {
+  "rosap_id": "93054",
+  "title": "Airplane Tests of Enhanced Emergency Smoke Venting",
+  "date": "1989-03-01",
+  "report": "DOT/FANCT-89/9",
+  "pdf": "ct89-9.pdf"
+ },
+ {
+  "rosap_id": "92971",
+  "title": "Technology Assessment for Aircraft Command in Emergency Situations",
+  "date": "1988-10-01",
+  "report": "DOT/FAA/CT-88/20",
+  "pdf": "ct88-20.pdf"
+ },
+ {
+  "rosap_id": "92948",
+  "title": "Aircraft Electrical Wet-Wire Arc Tracking",
+  "date": "1988-08-01",
+  "report": "DOT/FAA/CT-88/4",
+  "pdf": "ct88-4.pdf"
+ },
+ {
+  "rosap_id": "92972",
+  "title": "Enhanced Emergency Smoke Venting",
+  "date": "1988-07-01",
+  "report": "DOT/FANCI'-88/22",
+  "pdf": "ct88-22.pdf"
+ },
+ {
+  "rosap_id": "92944",
+  "title": "Study of Benefits of Passenger Protective Breathing Equipment From Analysis of Past Accidents",
+  "date": "1988-03-01",
+  "report": "DOT/FAA/CT-88/03",
+  "pdf": "ct88-03.pdf"
+ },
+ {
+  "rosap_id": "92918",
+  "title": "Current Fire Safety Design Aspects of Commuter Aircraft",
+  "date": "1988-03-01",
+  "report": "DOT/FAA/CT-87/32",
+  "pdf": "ct87-32.pdf"
+ },
+ {
+  "rosap_id": "92901",
+  "title": "Fuel Containment Concepts - Transport Category Airplanes",
+  "date": "1987-11-01",
+  "report": "DOT/FAA/CT-87/18",
+  "pdf": "ct87-18.pdf"
+ },
+ {
+  "rosap_id": "92735",
+  "title": "Laboratory Characterization Tests for Antimisting Fuel",
+  "date": "1987-03-01",
+  "report": "DOT/FAA/CT-86/23",
+  "author": "Joseph J. Wilson",
+  "abstract": ""
+ },
+ {
+  "rosap_id": "92733",
+  "title": "Antimisting Fuel (AMK) Flight Degrader Development and Aircraft Fuel System Investigation",
+  "date": "1987-02-01",
+  "report": "DOT/FAA/CT-86/6",
+  "pdf": "ct86-6.pdf"
+ },
+ {
+  "rosap_id": "92698",
+  "title": "Study of General Aviation Fire Accidents (1974-1983)",
+  "date": "1987-02-01",
+  "report": "DOT/FAA/CT-86/24",
+  "pdf": "ct86-24.pdf"
+ },
+ {
+  "rosap_id": "92655",
+  "title": "Halon Extinguishment of Small Aircraft Instrument Panel Fires",
+  "date": "1986-12-01",
+  "report": "DOT /FAA/CT-86/26",
+  "pdf": "ct86-26.pdf"
+ },
+ {
+  "rosap_id": "92685",
+  "title": "An Investigation of the FAA Vertical Bunsen Burner Flammability Test Method",
+  "date": "1986-08-01",
+  "report": "DOT/FAA/CT-86/22",
+  "pdf": "ct86-22.pdf"
+ },
+ {
+  "rosap_id": "92699",
+  "title": "Avgas/Autogas Comparison: Winter Grade Fuels",
+  "date": "1986-07-01",
+  "report": "DOT/FAA/CT-86/21",
+  "pdf": "ct86-21.pdf"
+ },
+ {
+  "rosap_id": "92654",
+  "title": "Halon Extinguisher Agent Behavior in a Ventilated Small Aircraft",
+  "date": "1986-06-01",
+  "report": "DOT/FAA/CT-86/5",
+  "pdf": "ct86-5.pdf"
+ },
+ {
+  "rosap_id": "92644",
+  "title": "A Vortex Model for Wall Flame Height",
+  "date": "1985-09-01",
+  "report": "DOT/FAA/CT-85/17",
+  "pdf": "ct85-17.pdf"
+ },
+ {
+  "rosap_id": "92629",
+  "title": "Wall Flames and Implications for Upward Flame Spread",
+  "date": "1985-06-01",
+  "report": "DOT/FAA/CT-85/2",
+  "pdf": "ct85-2.pdf"
+ },
+ {
+  "rosap_id": "92624",
+  "title": "The Role of Aircraft Panel Materials in Cabin Fires and their Properties",
+  "date": "1985-06-01",
+  "report": "DOT/FAA/CT-84/30",
+  "pdf": "ct84-30.pdf"
+ },
+ {
+  "rosap_id": "92579",
+  "title": "Suppression and Control of Class C Cargo Compartments Fires",
+  "date": "1985-02-01",
+  "report": "DOT/FAA/CT-84/21",
+  "pdf": "ct84-21.pdf"
+ },
+ {
+  "rosap_id": "92606",
+  "title": "Preliminary Evaluation of an Improved Flammability Test Method for Aircraft Materials",
+  "date": "1984-12-01",
+  "report": "DOT/FAA/CT-84/22",
+  "pdf": "ct84-22.pdf"
+ },
+ {
+  "rosap_id": "92582",
+  "title": "A Research Study of the Assessment of Escape Impairment by Irritant Combustion Gases in Postcrash Aircraft Fires",
+  "date": "1984-09-01",
+  "report": "DOT/FAA/CT-84/16",
+  "pdf": "ct84-16.pdf"
+ },
+ {
+  "rosap_id": "92580",
+  "title": "Quasi-Steady Analysis of Aircraft Panel Flammability",
+  "date": "1984-06-01",
+  "report": "DOT/FAA/CT-84/14",
+  "pdf": "ct84-14.pdf"
+ },
+ {
+  "rosap_id": "92503",
+  "title": "Evaluation of an Improved Flame Resistant Aircraft Window System",
+  "date": "1984-05-01",
+  "report": "DOT/FAA/CT-83/1 0",
+  "pdf": "ct83-10.pdf"
+ },
+ {
+  "rosap_id": "92561",
+  "title": "Decision Analysis Model for Passenger Aircraft Fire Safety with Application to Fire-Blocking of Seats",
+  "date": "1984-03-01",
+  "report": "DOT/FAA/CT-84/8",
+  "pdf": "ct84-8.pdf"
+ },
+ {
+  "rosap_id": "92543",
+  "title": "Aircraft Seat Fire Blocking Layers: Effectiveness and Benefits Under Various Scenarios",
+  "date": "1984-02-01",
+  "report": "DOT/FAA/CT -83/43",
+  "pdf": "ct83-43.pdf"
+ },
+ {
+  "rosap_id": "92558",
+  "title": "Study on Transport Airplane Unplanned Water Contact",
+  "date": "1984-01-01",
+  "report": "DOT/FAA/CT-84/3",
+  "pdf": "84-3.pdf"
+ },
+ {
+  "rosap_id": "92470",
+  "title": "Extinguisher Agent Behavior in a Ventilated Small Aircraft",
+  "date": "1984-01-01",
+  "report": "FAA/CT-83/30",
+  "pdf": "ct83-30.pdf"
+ },
+ {
+  "rosap_id": "92544",
+  "title": "A Laboratory Test for Evaluating the Fire Containment Characteristics of Aircraft Class D Cargo Compartment Lining Material",
+  "date": "1983-10-01",
+  "report": "DOT/FAA/CT-83/44",
+  "pdf": "ct83-44.pdf"
+ },
+ {
+  "rosap_id": "92456",
+  "title": "Application of Thermochemical Modeling to Aircraft Interior Polymeric Materials II - Multilayered Seat Cushions",
+  "date": "1983-10-01",
+  "report": "DOT/FAA/CT-83/16",
+  "pdf": "ct83-16.pdf"
+ },
+ {
+  "rosap_id": "92461",
+  "title": "Radiative Ignition and Opposed Flow Flame Spread Measurements on Materials",
+  "date": "1983-08-01",
+  "report": "DOT/FAA/CT-83/28",
+  "pdf": "ct83-28.pdf"
+ },
+ {
+  "rosap_id": "92495",
+  "title": "Fire Containment Characteristics of Aircraft Class D Cargo Compartments",
+  "date": "1983-06-01",
+  "report": "FAA/DOT/CT-82/156",
+  "pdf": "faa82-156.pdf"
+ },
+ {
+  "rosap_id": "92462",
+  "title": "Correlation of Laboratory-Scale Fire Test Methods for Seat Blocking Layer Materials With Large-Scale Test Results",
+  "date": "1983-06-01",
+  "report": "DOT/FAA/CT-83/29",
+  "pdf": "ct83-29.pdf"
+ },
+ {
+  "rosap_id": "92459",
+  "title": "Pressure Modeling of Char-Forming and Laminated Materials",
+  "date": "1983-06-01",
+  "report": "UOT/FAA/CT-83/24",
+  "pdf": "ct83-24.pdf"
+ },
+ {
+  "rosap_id": "92498",
+  "title": "Analysis of Dissipation of Gaseous Extinguisher Agents in Ventilated Compartments",
+  "date": "1983-05-01",
+  "report": "DOT/FAA/CT-83/1",
+  "pdf": "ct83-1.pdf"
+ },
+ {
+  "rosap_id": "21233",
+  "title": "Crashworthiness: An Illustrated Commentary on Occupant Survival in General Aviation Accidents",
+  "date": "1983-04-01",
+  "report": "DOT/FAA/AM-83/8",
+  "pdf": "am83-8.pdf"
+ },
+ {
+  "rosap_id": "92490",
+  "title": "Optimization of Aircraft Seat Cushion Fire Blocking Layers",
+  "date": "1983-03-01",
+  "report": "DOT/FAA/CT-82/132",
+  "pdf": "ct82-132.pdf"
+ },
+ {
+  "rosap_id": "91853",
+  "title": "Numerical Calculations of Turbulent Buoyant Flow in Aircraft Cabins",
+  "date": "1983-03-01",
+  "report": "DOT/FAA/CT-82/61",
+  "pdf": "ct82-61.pdf"
+ },
+ {
+  "rosap_id": "92223",
+  "title": "In-Flight Aircraft Seat Fire Extinguishing Tests (Cabin Hazard Measurements)",
+  "date": "1982-12-01",
+  "report": "DOT/FAA/CT-82/111",
+  "pdf": "ct82-111.pdf"
+ },
+ {
+  "rosap_id": "91222",
+  "title": "Correlation of Flammability Test Data on Antimisting Fuels",
+  "date": "1982-12-01",
+  "report": "DOT/FAA/CT-82/29",
+  "pdf": "ct82-29.pdf"
+ },
+ {
+  "rosap_id": "92217",
+  "title": "Equivalency Evaluation of Firefighting Agents and Minimum Requirements at U.S. Air Force Airfields",
+  "date": "1982-11-01",
+  "report": "DOT/FAA/CT-82-109",
+  "pdf": "ct82-109.pdf"
+ },
+ {
+  "rosap_id": "92393",
+  "title": "Fire Management/Suppression Systems/Concepts Relating to Aircraft Cabin Fire Safety",
+  "date": "1982-07-01",
+  "report": "DOT/FAA/CT-82/134",
+  "pdf": "ct82-134.pdf"
+ },
+ {
+  "rosap_id": "92204",
+  "title": "An Assessment of Correlations Between Laboratory and Full-Scale Experiments for the FAA Aircraft Fire Safety Program, Part 4: Flammability Tests",
+  "date": "1982-07-01",
+  "report": "NBSIR 82-2525",
+  "author": "James G. Quintiere",
+  "abstract": "Part 4 (Flammability Tests) of the NBS correlation study; the archive holds Parts 1 to 3 (FSR-0139, FSR-0141, FSR-0142)."
+ },
+ {
+  "rosap_id": "91828",
+  "title": "Study of Hand-Held Fire Extinguishers Aboard Civil Aviation Aircraft",
+  "date": "1982-06-01",
+  "report": "DOT/FAA/CT-82/42",
+  "pdf": "ct82-42.pdf"
+ },
+ {
+  "rosap_id": "91826",
+  "title": "Examination of Aircraft Interior Emergency Lighting in a Postcrash Fire Environment",
+  "date": "1982-06-01",
+  "report": "DOT/FAA/CT-82/55",
+  "pdf": "ct82-55.pdf"
+ },
+ {
+  "rosap_id": "90814",
+  "title": "Dayton Aircraft Cabin Fire Model, Version 3, Volume I - Physical Description",
+  "date": "1982-06-01",
+  "report": "DOT/FAA/CT-81/69-I",
+  "pdf": "ct81-69I.pdf"
+ },
+ {
+  "rosap_id": "90813",
+  "title": "Dayton Aircraft Cabin Fire Model, Version 3, Volume II - Program User's Guide and Appendices",
+  "date": "1982-06-01",
+  "report": "DOT/FAA/CT-81/69-II",
+  "pdf": "ct81-69II.pdf`"
+ },
+ {
+  "rosap_id": "16406",
+  "title": "Application of Thermochemical Modeling to Aircraft Interior Polymeric Materials",
+  "date": "1982-06-01",
+  "report": "DOT/FAA/CT-82/83",
+  "pdf": "ct82-83.pdf"
+ },
+ {
+  "rosap_id": "91852",
+  "title": "U.S. Commercial Fleet Usage of Antimisting Fuels: Survey and Analysis",
+  "date": "1982-05-01",
+  "report": "DOT/FAA/CT-82/59",
+  "pdf": "ct82-59.pdf"
+ },
+ {
+  "rosap_id": "91820",
+  "title": "A Combined Hazard Index Fire Test Methodology for Aircraft Cabin Materials - Volume II",
+  "date": "1982-04-01",
+  "report": "DOTIFAA/CT-82/36-11",
+  "pdf": "ct82-36II.pdf"
+ },
+ {
+  "rosap_id": "91819",
+  "title": "A Combined Hazard Index Fire Test Methodology for Aircraft Cabin Materials - Volume I",
+  "date": "1982-04-01",
+  "report": "DOT/FAA/CT-82/36-1",
+  "pdf": "ct82-36I.pdf"
+ },
+ {
+  "rosap_id": "91216",
+  "title": "The Pyrolysis Toxic Gas Analysis of Aircraft Interior Materials",
+  "date": "1982-04-01",
+  "report": "DOT/FAA/CT-82/13",
+  "pdf": "ct82-13.pdf"
+ },
+ {
+  "rosap_id": "90828",
+  "title": "Modeling of Ceiling Fire Spread and Thermal Radiation",
+  "date": "1981-10-01",
+  "report": "DOT/FAA/CT-81-70",
+  "pdf": "ct81-70.pdf"
+ },
+ {
+  "rosap_id": "90818",
+  "title": "Index of NAFEC Technical Reports, 1972 -1977",
+  "date": "1981-05-01",
+  "report": "FAA-NA-81-54",
+  "author": "Ruth J. Farrell; Nancy G. Boylan",
+  "abstract": "Index of NAFEC technical reports for 1972 to 1977; the archive holds the 1967 to 1969 index (FAA-NA-70-67)."
+ },
+ {
+  "rosap_id": "90741",
+  "title": "Effect of Thermal Radiation on the Integrity of Pressurized Aircraft Evacuation Slides and Slide Materials",
+  "date": "1981-03-01",
+  "report": "FAA-CT-81-28",
+  "pdf": "ct81-28.pdf"
+ },
+ {
+  "rosap_id": "90485",
+  "title": "Exhaust Emissions Characteristics and Variability for Pratt and Whitney JT8D-7A Gas Turbine Engines Subjected to Major Overhaul and Repair",
+  "date": "1980-09-01",
+  "report": "FAA-CT-79-53",
+  "pdf": "ct79-53.pdf"
+ },
+ {
+  "rosap_id": "21175",
+  "title": "Readability of Self-Illuminated Signs in a Smoke-Obscured Environment",
+  "date": "1979-11-01",
+  "report": "DOT/FAA/AM-79/22",
+  "pdf": "fsr-0090.pdf"
+ },
+ {
+  "rosap_id": "21133",
+  "title": "GPSS Computer Simulation of Aircraft Passenger Emergency Evacuations",
+  "date": "1978-06-01",
+  "report": "DOT/FAA/AM-78/23",
+  "pdf": "fsr-0091.pdf"
+ },
+ {
+  "rosap_id": "21119",
+  "title": "Human Respiratory Considerations for Civil Transport Aircraft Oxygen System",
+  "date": "1978-01-01",
+  "report": "DOT/FAA/AM-78/9",
+  "pdf": "am78-9.pdf"
+ },
+ {
+  "rosap_id": "70856",
+  "title": "AC 20-100: General Guidelines for Measuring Fire Extinguishing Agent Concentrations in Powerplant Compartments",
+  "date": "1977-09-21",
+  "report": "AC 20-100",
+  "author": "Federal Aviation Administration",
+  "abstract": "Advisory Circular describing the installation and use of a model GA-2A fire extinguisher agent concentration recorder for determining the distribution and concentration of fire-extinguishing agents discharged in an aircraft powerplant compartment."
+ },
+ {
+  "rosap_id": "20816",
+  "title": "A Protective Passenger Smoke Hood",
+  "date": "1967-04-01",
+  "report": "DOT/FAA/AM-67/04",
+  "pdf": "fsr-0093.pdf"
+ },
+ {
+  "rosap_id": "20735",
+  "title": "Human Factors of Emergency Evacuation",
+  "date": "1964-09-01",
+  "report": "DOT/FAA/AM-65/7",
+  "pdf": "fsr-0094.pdf"
+ },
+ {
+  "rosap_id": "81573",
+  "title": "Evaluation of The Fire-Detection and-Extinguishing Systems of the Navy XP6M-1 Airplane",
+  "date": "1959-11-01",
+  "report": "",
+  "pdf": "fsr-0044.pdf"
+ },
+ {
+  "rosap_id": "81680",
+  "title": "Aircraft Installation and Operation of An Extinguishing-Agent Concentration Recorder",
+  "date": "1959-09-01",
+  "report": "",
+  "pdf": "403.pdf"
+ },
+ {
+  "rosap_id": "81604",
+  "title": "Investigation of Fires Originating From An Aircraft Oxygen System",
+  "date": "1958-03-01",
+  "report": "",
+  "pdf": "327.pdf"
+ },
+ {
+  "rosap_id": "81574",
+  "title": "Evaluation of The Resetting Continuous Fire-Detection System For The B-36 Aircraft Nacelle",
+  "date": "1956-11-01",
+  "report": "",
+  "pdf": "295.pdf"
+ },
+ {
+  "rosap_id": "81560",
+  "title": "Effect of Element-Wall Thickness on Operation of Continuous Fire-Detector Systems",
+  "date": "1956-05-01",
+  "report": "",
+  "pdf": "280.pdf"
+ },
+ {
+  "rosap_id": "81546",
+  "title": "Fire - Resistance Studies of The Convair-340 Power Plant",
+  "date": "1955-06-06",
+  "report": "",
+  "pdf": "266.pdf"
+ },
+ {
+  "rosap_id": "81522",
+  "title": "Aircraft Fire Extinguishment Part IV Evaluation of A Bromochloromethane Fire-Extinguishing System For The XB-45 Airplane",
+  "date": "1954-06-01",
+  "report": "",
+  "pdf": "240.pdf"
+ },
+ {
+  "rosap_id": "81488",
+  "title": "Aircraft Fire Extinguishment, Part III, The Instrument For Evaluating Extinguishing Systems",
+  "date": "1953-06-01",
+  "report": "",
+  "pdf": "206.pdf"
+ },
+ {
+  "rosap_id": "81487",
+  "title": "Aircraft Fire Extinguishment, Part II, The Effect of Air Flow on Extinguishing Requirements Oa A Jet Power-Plant Fire Zone",
+  "date": "1953-06-01",
+  "report": "",
+  "pdf": "205.pdf"
+ }
+]
