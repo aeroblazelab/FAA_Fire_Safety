@@ -164,6 +164,23 @@ BANNER_CSS = """/* single source of truth for the archive banner, referenced by 
 }
 .handbook-reveal:hover { background: #dde0e3; }
 .hb-hidden { display: none !important; }
+
+/* ROSA P (National Transportation Library) now hosts the official report collection */
+.rosap-official {
+  background: #e8f1fb; border: 3px solid #0b4ea2; border-radius: 8px;
+  padding: 16px 22px; margin: 16px 0; font-size: 16px; line-height: 1.7;
+}
+.rosap-official .ro-title { font-size: 19px; color: #0b4ea2; }
+.rosap-link {
+  display: inline-block; margin-left: 6px; padding: 0 6px; font-size: 11px; font-weight: bold;
+  line-height: 18px; vertical-align: middle; white-space: nowrap; text-decoration: none;
+  color: #0b4ea2; background: #e8f1fb; border: 1px solid #0b4ea2; border-radius: 3px;
+}
+a.rosap-link:hover { background: #0b4ea2; color: #fff; text-decoration: none; }
+.rosap-ext {
+  display: inline-block; margin-left: 4px; padding: 0 5px; font-size: 11px; line-height: 18px;
+  white-space: nowrap; color: #555; background: #f1f1f1; border: 1px solid #ccc; border-radius: 3px;
+}
 """
 
 ARCHIVE_JS = r"""// first-visit notice: shown once per browser session
@@ -181,7 +198,10 @@ ARCHIVE_JS = r"""// first-visit notice: shown once per browser session
       '<p><strong>Content is historical record only and is no longer being updated.</strong> ' +
       'This archive is not affiliated with or endorsed by the Federal Aviation Administration. ' +
       'For current regulations and guidance, use the FAA’s ' +
-      '<a href="https://drs.faa.gov/" target="_blank" rel="noopener">Dynamic Regulatory System (DRS)</a>.</p>' +
+      '<a href="https://drs.faa.gov/" target="_blank" rel="noopener">Dynamic Regulatory System (DRS)</a>. ' +
+      'Fire Safety Branch <strong>technical reports</strong> are now officially published in the National Transportation Library’s ' +
+      '<a href="https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481" target="_blank" rel="noopener">ROSA P “FAA Fire Safety” collection</a>; ' +
+      'legacy reports, meeting presentations and conference material not on ROSA P remain available here.</p>' +
       '<p style="font-size:13.5px;color:#555;">Built and hosted by ' +
       '<a href="https://www.aeroblazelab.com/" target="_blank" rel="noopener">Aeroblaze Laboratory</a> ' +
       'to keep these essential presentations, reports, and test resources accessible to the community ' +
@@ -330,10 +350,17 @@ were never publicly archived.</li>
 </ul>
 
 <h3>Official sources</h3>
-<p>For current, authoritative material, use the FAA&rsquo;s
-<a href="https://drs.faa.gov/">Dynamic Regulatory System (DRS)</a> and the
-<a href="https://rosap.ntl.bts.gov/">National Transportation Library (ROSA-P)</a>. Works of the U.S.
-Government are in the public domain (17 U.S.C. &sect; 105).</p>
+<p>For current regulations and guidance, use the FAA&rsquo;s
+<a href="https://drs.faa.gov/">Dynamic Regulatory System (DRS)</a>.</p>
+<p>Fire Safety Branch <strong>technical reports</strong> are now officially published in the National Transportation
+Library&rsquo;s <a href="https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481"><strong>ROSA P &ldquo;FAA Fire Safety&rdquo;
+collection</strong></a>, which is the authoritative, maintained copy and includes reports issued after this snapshot was
+taken. Every report in the <a href="/reports/browse">Reports &amp; Presentations Index</a> that is also on ROSA P carries a
+<span class="rosap-link">ROSA&nbsp;P</span> link to its official record, and reports this archive never captured are listed
+from ROSA P. The ROSA P collection holds only the DOT/FAA-numbered report series; the legacy reports (FSR, FAA-RD, FAA-NA,
+NBSIR and others), the working-group meeting presentations, the conference sites, the Handbook pages and the training
+videos are preserved only here.</p>
+<p>Works of the U.S. Government are in the public domain (17 U.S.C. &sect; 105).</p>
 
 <h3>Problems or corrections</h3>
 <p>Found a broken link, a missing document you can source, or an error? Open an issue on the
@@ -379,6 +406,19 @@ scroll to the bottom of the DRS browse page, then click <strong>&ldquo;Fire Safe
 <span style="color:#8a6d00;">Note: the separate &ldquo;Revision&nbsp;3&rdquo; entry in DRS is <strong>not yet officially
 approved for use</strong>.</span><br/>
 <span style="color:#555;">The chapters and appendixes below are preserved for historical record only and are no longer updated.</span>
+</div>
+"""
+
+# home page: point readers at the official report collection, and say what is only here
+ROSAP_NOTE = """
+<div class="rosap-official">
+<strong class="ro-title">&#128218; Looking for official Fire Safety Branch reports?</strong><br/>
+The FAA now publishes its Fire Safety technical reports in the National Transportation Library&rsquo;s
+<a href="https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481"><strong>ROSA P &ldquo;FAA Fire Safety&rdquo; collection</strong></a>
+&mdash; the authoritative, maintained copy, including reports issued after this snapshot was taken.<br/>
+<span style="color:#555;">This archive still holds what ROSA P does not: the legacy report series (FSR, FAA-RD, FAA-NA, NBSIR &hellip;),
+the working-group meeting presentations, the conference sites, the Handbook pages and the training videos.
+The <a href="/reports/browse">Reports &amp; Presentations Index</a> links each report to its ROSA P record where one exists.</span>
 </div>
 """
 
@@ -502,6 +542,10 @@ def process(rawrel: str):
         "FAA Fire Safety Research &ndash; Unofficial Archive")
     text = URL_ATTR.sub(lambda m: m.group(1) + m.group(2) + rewrite_url(m.group(3), orig) + m.group(2), text)
     # --- post-rewrite chrome wiring (our own paths; the rewriter must not touch them) ---
+    # home page: official-source notice (links to our own index, so it goes in after the rewrite)
+    if site in ("/index.html", "/home.html.html"):
+        anchor = '<a name="content"></a>'
+        text = text.replace(anchor, anchor + ROSAP_NOTE, 1)
     # header search box: repoint the dead faa.gov search at the local index
     text = re.sub(r'action="https://web\.archive\.org/web/[^"]*faa\.gov/search/?"|action="https?://(?:www\.)?faa\.gov/search/?"',
                   'action="/reports/browse"', text)

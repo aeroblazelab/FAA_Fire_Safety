@@ -30,8 +30,25 @@ fire-safety community.
     to `build_site.py` (or delete the cache) after adding files to the archive.
   - `extract_reports.py` / `extract_presentations.py` — mine report and presentation metadata
     from captured database pages (three markup generations, 2004–2025).
-  - `build_reports_index.py` — generates the searchable index page.
+  - `build_reports_index.py` — generates the searchable index page. It also reads
+    `site/data/rosap.json`, a crosswalk to the National Transportation Library's
+    [ROSA P "FAA Fire Safety" collection](https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481),
+    where the FAA now publishes Fire Safety Branch reports: each archived report that is also
+    on ROSA P gets a link to its official record, and reports the archive never captured are
+    listed from ROSA P. The crosswalk was built by matching every ROSA P record (237 as of
+    November 2026) to the index by report number, then by title; ROSA P refuses non-browser
+    clients, so it was harvested from a browser session rather than scripted.
   - `serve.py` — local preview server (serves `site/` plus the file archive).
+
+## Official source
+
+The FAA's Fire Safety Branch reports are now officially published in the National Transportation
+Library's [ROSA P "FAA Fire Safety" collection](https://rosap.ntl.bts.gov/cbrowse?parentId=dot:92481).
+That collection is the authoritative, maintained copy and includes reports issued after this
+snapshot was taken, but it holds only the DOT/FAA-numbered report series (237 records, 1953–2026).
+The legacy report series (FSR, FAA-RD, FAA-NA, NBSIR …, about 650 PDFs), the working-group meeting
+presentations, the conference sites, the Handbook pages and the training videos exist only in this
+archive, which is why it stays up and points to ROSA P rather than replacing itself with a redirect.
 
 ## What's not here
 
