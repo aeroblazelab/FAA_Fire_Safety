@@ -10,12 +10,17 @@ Output:
   <repo>/site/         static site, lowercase paths
                        file links rewritten to FILE_BASE + canonical captured path
 """
-import os, re, sys, urllib.parse, pathlib, collections
+import os, re, sys, html, urllib.parse, pathlib, collections
 from archive_files import DRIVE, load_inventory
 
 RAW = os.path.join(DRIVE, "raw_html")
 MAP = os.path.join(DRIVE, "_manifests", "html_map.tsv")
 REPO = pathlib.Path(__file__).resolve().parent.parent
+# Windows caps paths at 260 chars unless long paths are enabled system-wide; the deepest
+# site/ pages blow past that when the repo sits in a long folder (a git worktree, say),
+# so address the output tree through the \\?\ prefix, which lifts the limit.
+if os.name == "nt" and not str(REPO).startswith("\\\\?\\"):
+    REPO = pathlib.Path("\\\\?\\" + str(REPO))
 OUT = REPO / "site"
 FILE_BASE = os.environ.get("FILE_BASE", "/files")  # where pdf/ppt/zip/etc. are served
 WAYBACK_FALLBACK = "https://web.archive.org/web/2024/"  # for links whose target was never captured locally
@@ -396,7 +401,8 @@ unresolved = collections.Counter()
 written_pages = set()
 
 def rewrite_url(url: str, page_orig: str) -> str:
-    u = url.strip()
+    # attribute values are HTML text: 'FAAR&amp;DEfforts.ppt' names the file FAAR&DEfforts.ppt
+    u = html.unescape(url.strip())
     if not u or u.startswith(("#", "mailto:", "javascript:", "data:")):
         return url
     # absolute external?
